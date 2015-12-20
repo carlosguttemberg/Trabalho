@@ -41,7 +41,7 @@
                         
                             
                         <button type="submit" class="btn btn-success">Entrar</button>
-                        <button type="submit" class="btn btn-success">Cadastrar-se</button>
+                        <a href="cadastro.jsp" class="btn btn-success">Cadastrar-se</a>
                     </form>
                 </div>
             </div>
@@ -65,6 +65,7 @@
             <!-- Slide das imagens -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
+                    <label class="carousel-caption text-center label-warning">Teste</label>
                     <img src="leitura.jpg" alt="Chania">
                 </div>
 
