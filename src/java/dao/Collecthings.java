@@ -23,7 +23,7 @@ public class Collecthings {
     public static void main(String[] args) {
         // TODO code application logic here
         
-       /* Configuration config = new Configuration();
+       Configuration config = new Configuration();
         //config.addAnnotatedClass(Contato.class);
        config.addAnnotatedClass(Autor.class);
        config.addAnnotatedClass(Categoria.class);
@@ -38,13 +38,15 @@ public class Collecthings {
         //config.configure("hibernate.cfg.xml");
         //config.configure("hibernate.cfg.xml");
         
+        // PARA CRIAR O BANCO SÓ DESCOMENTAR A LINHA ABAIXO
        // new SchemaExport(config).create(true, true);
-       */
-       Autor a = new Autor(0, "teste");
-       AutorDAO autordao = new AutorDAO();
-       autordao.salvar(a);
+       //E PARA ATUALIZAR, A LINHA ABAIXO
+       //new SchemaUpdate(config).execute(true, true);
+       //Autor a = new Autor(0, "teste");
+       //AutorDAO autordao = new AutorDAO();
+       //autordao.salvar(a);
         
-        //new SchemaUpdate(config).execute(true, true);
+        
     }
     
 }
