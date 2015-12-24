@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -109,7 +110,8 @@
                 </div>
 
                 
-               
+                
+                
                 <div class="row">
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">

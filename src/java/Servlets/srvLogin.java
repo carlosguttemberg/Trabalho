@@ -38,6 +38,8 @@ public class srvLogin extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String cmd = request.getParameter("cmd");
             
+            
+            
             if(cmd.equals("incluir")){
                 String caminho = "usuario.png";
                 String nome = request.getParameter("nome");
@@ -60,6 +62,11 @@ public class srvLogin extends HttpServlet {
                     RequestDispatcher rd = request.getRequestDispatcher("index.jsp?status=" + status);
                     rd.forward(request, response);
                 }
+            }else if(cmd.equals("inicial")){
+                String foto = "";
+                UsuarioController.retornaCampo("1", "caminhofoto");
+                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto);
+                rd.forward(request, response);
             }
             
 

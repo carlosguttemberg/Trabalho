@@ -34,6 +34,12 @@ public class StatusLeitura implements Serializable {
         this.nome = nome;
     }
 
+    public StatusLeitura(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+    
+    
     public int getId() {
         return id;
     }

@@ -36,10 +36,6 @@
                             <input type="password" placeholder="Senha" class="form-control" name="txtsenha">
                         </div>
                         
-
-                           
-                        
-                            
                         <button type="submit" class="btn btn-success">Entrar</button>
                         <a href="cadastro.jsp" class="btn btn-success">Cadastrar-se</a>
                     </form>

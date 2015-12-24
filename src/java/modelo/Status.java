@@ -31,6 +31,12 @@ public class Status implements Serializable {
         this.nome = nome;
     }
 
+    public Status(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+    
+    
     public Status() {
     }
 
