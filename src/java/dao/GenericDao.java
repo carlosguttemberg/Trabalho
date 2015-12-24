@@ -20,6 +20,8 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.lang.Object;
+import org.hibernate.criterion.ProjectionList;
+import org.hibernate.criterion.Projections;
 import org.hibernate.transform.Transformers;
 //import util.HibernateUtil;
  
@@ -107,6 +109,15 @@ public class GenericDao<T extends Serializable> {
         return (T) session.createCriteria(persistentClass)
             .add(Restrictions.eq(coluna, palavra).ignoreCase()).uniqueResult();
     }
+    
+    public T findByCollumId(int id, String coluna) {
+        Session session = (Session) getEntityManager().getDelegate();
+         ProjectionList proList = Projections.projectionList();
+         proList.add(Projections.property(coluna)); 
+        return (T) session.createCriteria(persistentClass)
+            .setProjection(proList).add(Restrictions.eq(coluna, id).ignoreCase()).uniqueResult();
+    }
+ 
  
     private void close() {
         if (getEntityManager().isOpen()) {

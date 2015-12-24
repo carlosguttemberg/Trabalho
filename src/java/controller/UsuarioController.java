@@ -6,6 +6,9 @@
 package controller;
 
 import dao.UsuarioDAO;
+import java.lang.reflect.Field;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Usuario;
 
 /**
@@ -34,6 +37,33 @@ public class UsuarioController {
             return true;
         }
         return false;
+    }
+    
+    public static String retornaCampo(String id, String campo){
+        String retorno = "";
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario u = dao.findById(Integer.parseInt(id));
+       
+        try {
+            Class<?> classe = Usuario.class;
+            Field atributo;
+            atributo = classe.getDeclaredField(campo);
+            atributo.setAccessible(true);
+            Object value;    
+            value = atributo.get(u);
+            retorno = value.toString();
+
+        } catch (NoSuchFieldException ex) {
+            Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SecurityException ex) {
+            Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return retorno;
     }
     
 }
