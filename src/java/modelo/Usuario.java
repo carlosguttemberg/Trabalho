@@ -26,6 +26,8 @@ public class Usuario implements Serializable {
     private int id;
     @Column(name = "nome")
     private String nome;
+    @Column(name = "login")
+    private String login;
     @Column(name = "senha")
     private String senha;
     @Column(name = "caminhofoto")
@@ -38,18 +40,24 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(String nome, String senha, String caminhofoto, String email) {
+    public Usuario(String nome, String login, String senha, String caminhofoto, String email) {
         this.nome = nome;
+        this.login = login;
         this.senha = senha;
         this.caminhofoto = caminhofoto;
         this.email = email;
     }
 
-    public Usuario(String nome, String senha, String email) {
+    public Usuario(int id, String nome, String login, String senha, String caminhofoto, String email) {
+        this.id = id;
         this.nome = nome;
+        this.login = login;
         this.senha = senha;
+        this.caminhofoto = caminhofoto;
         this.email = email;
     }
+
+        
     
     public int getId() {
         return id;

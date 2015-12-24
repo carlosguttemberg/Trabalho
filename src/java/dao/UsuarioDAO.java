@@ -35,4 +35,6 @@ public class UsuarioDAO extends GenericDao<Usuario>{
         return session.createCriteria(this.getPersistentClass()).add(Restrictions.sqlRestriction("nome like '" + nome + "%'")).list();
         
     }
+    
+    
 }
