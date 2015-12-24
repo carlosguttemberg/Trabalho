@@ -66,19 +66,19 @@
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
                     <label class="carousel-caption text-capitalize"><font size="7" color="FFD700">Teste</font></label>
-                    <img src="leitura.jpg" alt="Chania">
+                    <img src="ler.jpg" alt="Chania">
                 </div>
 
                 <div class="item">
-                    <img src="colecao.jpg" alt="Chania">
+                    <img src="colec.jpg" alt="Chania">
                 </div>
 
                 <div class="item">
-                    <img src="melina.jpg" alt="Flower">
+                    <img src="mel.jpg" alt="Flower">
                 </div>
 
                 <div class="item">
-                    <img src="zoeira.jpg" alt="Flower">
+                    <img src="zoe.jpg" alt="Flower">
                 </div>
             </div>
 
