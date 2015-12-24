@@ -57,13 +57,14 @@ public class Livro implements Serializable {
     public Livro() {
     }
 
-    public Livro(int id, String titulo, int ano, int volume, int paginas, String edicao, Autor autor, Editora editora, Categoria categoria, Status status, StatusLeitura statusleitura) {
+    public Livro(int id, String titulo, int ano, int volume, int paginas, String edicao, String caminhofoto, Autor autor, Editora editora, Categoria categoria, Status status, StatusLeitura statusleitura) {
         this.id = id;
         this.titulo = titulo;
         this.ano = ano;
         this.volume = volume;
         this.paginas = paginas;
         this.edicao = edicao;
+        this.caminhofoto = caminhofoto;
         this.autor = autor;
         this.editora = editora;
         this.categoria = categoria;
@@ -71,21 +72,21 @@ public class Livro implements Serializable {
         this.statusleitura = statusleitura;
     }
 
-    public Livro(String titulo, int ano, int volume, int paginas, String edicao, Autor autor, Editora editora, Categoria categoria, Status status, StatusLeitura statusleitura) {
+    public Livro(String titulo, int ano, int volume, int paginas, String edicao, String caminhofoto, Autor autor, Editora editora, Categoria categoria, Status status, StatusLeitura statusleitura) {
         this.titulo = titulo;
         this.ano = ano;
         this.volume = volume;
         this.paginas = paginas;
         this.edicao = edicao;
+        this.caminhofoto = caminhofoto;
         this.autor = autor;
         this.editora = editora;
         this.categoria = categoria;
         this.status = status;
         this.statusleitura = statusleitura;
     }
-    
-    
 
+    
     public int getId() {
         return id;
     }

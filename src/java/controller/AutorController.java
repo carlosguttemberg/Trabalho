@@ -7,6 +7,8 @@ package controller;
 
 import modelo.Autor;
 import dao.AutorDAO;
+import dao.UsuarioDAO;
+import java.lang.reflect.Field;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import modelo.Usuario;
 
 /**
  *
@@ -33,6 +36,33 @@ public class AutorController {
     
     public static void excluir(String id){
         new AutorDAO().excluir(Integer.parseInt(id));
+    }
+    
+    public static String retornaCampo(String id, String campo){
+        String retorno = "";
+        AutorDAO dao = new AutorDAO();
+        Autor a = dao.findById(Integer.parseInt(id));
+       
+        try {
+            Class<?> classe = Autor.class;
+            Field atributo;
+            atributo = classe.getDeclaredField(campo);
+            atributo.setAccessible(true);
+            Object value;    
+            value = atributo.get(a);
+            retorno = value.toString();
+
+        } catch (NoSuchFieldException ex) {
+            Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SecurityException ex) {
+            Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return retorno;
     }
     
   /* public static ModeloTabela listaAutors() {
@@ -84,4 +114,6 @@ public class AutorController {
         else
                 return false;
     }*/
+   
+      
 }
