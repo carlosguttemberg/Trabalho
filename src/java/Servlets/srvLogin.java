@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import controller.UsuarioController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -35,19 +36,32 @@ public class srvLogin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-
-            String login = request.getParameter("txtlogin");
-            String senha = request.getParameter("txtsenha");
-            String status = "";
-            if ((login.equals("IFF")) && (senha.equals("123"))) {
+            String cmd = request.getParameter("cmd");
+            
+            if(cmd.equals("incluir")){
+                String caminho = "usuario.png";
+                String nome = request.getParameter("nome");
+                String senha = request.getParameter("senha");
+                String login = request.getParameter("login");
+                String email = request.getParameter("email");
+                UsuarioController.salvar(nome, login, senha, caminho, email);
+                RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+                rd.forward(request, response);
+            }else if(cmd.equals("autentica")){
+                String login = request.getParameter("txtlogin");
+                String senha = request.getParameter("txtsenha");
+                String status = "";
+                if (UsuarioController.validaUsuario(login, senha) == true) {
 
                 RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
                 rd.forward(request, response);
-            } else {
-                status = "Login ou senha incorretos";
-                RequestDispatcher rd = request.getRequestDispatcher("index.jsp?status=" + status);
-                rd.forward(request, response);
+                } else {
+                    status = "Login ou senha incorretos";
+                    RequestDispatcher rd = request.getRequestDispatcher("index.jsp?status=" + status);
+                    rd.forward(request, response);
+                }
             }
+            
 
         }
     }

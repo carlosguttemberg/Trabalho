@@ -27,7 +27,7 @@
                     <a class="navbar-brand" href="#">Gerenciamento de Livros</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
-                    <form class="navbar-form navbar-right" method="POST" action="srvLogin">
+                    <form class="navbar-form navbar-right" method="POST" action="srvLogin?cmd=autentica">
                         <label><font color ="ffffff"><%=status%></font></label>
                         <div class="form-group">
                             <input type="text" placeholder="Login" class="form-control" name="txtlogin">

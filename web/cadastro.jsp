@@ -69,7 +69,7 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form id="loginform" class="form-horizontal" role="form" action="srvLogin">
+                        <form id="loginform" class="form-horizontal" role="form" action="srvLogin?cmd=incluir" method="POST">
 
                             <div class="form-group">
                                 <label for="firstname" class="col-md-3 control-label">Nome Completo</label>
@@ -86,15 +86,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">Login</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="login" placeholder="">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Senha</label>
                                 <div class="col-md-9">
                                     <input type="password" class="form-control" name="senha" placeholder="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="col-md-3 control-label">Repita a Senha</label>
-                                <div class="col-md-9">
-                                    <input type="password" class="form-control" name="senha2" placeholder="">
                                 </div>
                             </div>
                                 
@@ -105,6 +106,7 @@
                                 <div class="col-sm-12 controls">
                                      <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
                                     <div style="padding-top:15px" class="panel-body" >
+                                        
                                     
                                     <button class="btn btn-lg btn-primary btn-success" type="submit">Cadastrar</button>
                                     <button class="btn btn-lg btn-primary btn-success" type="reset">Limpar</button>

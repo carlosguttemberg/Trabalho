@@ -21,7 +21,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name = "livro")
-public class Livro {
+public class Livro implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO) 
     @Column(name = "id")
