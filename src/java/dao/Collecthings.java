@@ -59,6 +59,8 @@ public class Collecthings {
            System.out.println("login ou senha incorreto");
        }
         */
+       
+       System.out.println(UsuarioController.retornaCampo("1", "email"));
         
     }
     

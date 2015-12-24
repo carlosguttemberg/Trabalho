@@ -36,6 +36,8 @@ public class Livro implements Serializable {
     private int paginas;
     @Column(name = "edicao", length = 45)
     private String edicao;
+    @Column(name = "caminhofoto")
+    private String caminhofoto;
     @OneToOne
     @JoinColumn(name = "idAutor")
     private Autor autor;
