@@ -23,8 +23,7 @@ public class Collecthings {
     public static void main(String[] args) {
         // TODO code application logic here
         
-       /* Configuration config = new Configuration();
-        //config.addAnnotatedClass(Contato.class);
+       Configuration config = new Configuration();
        config.addAnnotatedClass(Autor.class);
        config.addAnnotatedClass(Categoria.class);
        config.addAnnotatedClass(Editora.class);
@@ -35,16 +34,16 @@ public class Collecthings {
        config.addAnnotatedClass(Livro.class);
        
         
-        //config.configure("hibernate.cfg.xml");
-        //config.configure("hibernate.cfg.xml");
+       config.configure("hibernate.cfg.xml");
+       config.configure("hibernate.cfg.xml");
         
-       // new SchemaExport(config).create(true, true);
-       */
+       new SchemaExport(config).create(true, true);
+       
        Autor a = new Autor(0, "teste");
        AutorDAO autordao = new AutorDAO();
        autordao.salvar(a);
         
-        //new SchemaUpdate(config).execute(true, true);
+      new SchemaUpdate(config).execute(true, true);
     }
     
 }
