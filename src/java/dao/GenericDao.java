@@ -101,6 +101,12 @@ public class GenericDao<T extends Serializable> {
         return (T) session.createCriteria(persistentClass)
             .add(Restrictions.eq("id", id)).uniqueResult();
     }
+    
+    public T findByCollumPalavra(String coluna, String palavra) {
+        Session session = (Session) getEntityManager().getDelegate();
+        return (T) session.createCriteria(persistentClass)
+            .add(Restrictions.eq(coluna, palavra).ignoreCase()).uniqueResult();
+    }
  
     private void close() {
         if (getEntityManager().isOpen()) {
