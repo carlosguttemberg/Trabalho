@@ -25,8 +25,13 @@ public class Collecthings {
     public static void main(String[] args) {
         // TODO code application logic here
         
+<<<<<<< HEAD
        Configuration config = new Configuration();
 
+       /*Configuration config = new Configuration();
+       
+>>>>>>> origin/master
+=======
        /*Configuration config = new Configuration();
        
 >>>>>>> origin/master
@@ -46,6 +51,7 @@ public class Collecthings {
 =======
         //config.configure("hibernate.cfg.xml");
         config.configure("hibernate.cfg.xml");
+<<<<<<< HEAD
 >>>>>>> origin/master
         
 <<<<<<< HEAD
@@ -55,6 +61,9 @@ public class Collecthings {
        AutorDAO autordao = new AutorDAO();
        autordao.salvar(a);
 =======
+=======
+        
+>>>>>>> origin/master
         // PARA CRIAR AS TABELAS NO BANCO SÓ DESCOMENTAR A LINHA ABAIXO -- PRECISA CRIAR O BANCO PRIMEIRO
        // new SchemaExport(config).create(true, true);
        //E PARA ATUALIZAR, A LINHA ABAIXO
@@ -74,11 +83,15 @@ public class Collecthings {
            System.out.println("login ou senha incorreto");
        }
         */
+<<<<<<< HEAD
 
         
 
      // new SchemaUpdate(config).execute(true, true);
 
+=======
+        
+>>>>>>> origin/master
     }
     
 }
