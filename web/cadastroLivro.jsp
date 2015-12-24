@@ -85,7 +85,7 @@
                                         <option value=""></option>
                                         <option value="">Machado de Assis</option>
                                      </select>
-                                    <a class="btn btn-primary btn-success" href="">Novo Autor</a>
+                                    <a class="btn btn-primary btn-success" href="cadastroAutor.jsp">Novo Autor</a>
                                 </div>
                             </div>
                             
@@ -96,7 +96,7 @@
                                         <option value=""></option>
                                         <option value="">Rocco</option>
                                      </select>
-                                   <a class="btn btn-primary btn-success" href="">Nova Editora</a>
+                                   <a class="btn btn-primary btn-success" href="cadastroEditora.jsp">Nova Editora</a>
                                 </div>
                             </div>
  
@@ -107,7 +107,7 @@
                                         <option value=""></option>
                                         <option value="">Machado de Assis</option>
                                    </select>
-                                    <a class="btn btn-primary btn-success" href="">Nova Categoria</a>
+                                    <a class="btn btn-primary btn-success" href="cadastroCategoria.jsp">Nova Categoria</a>
                                 </div>
                             </div>
                             
