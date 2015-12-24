@@ -65,7 +65,7 @@
             <!-- Slide das imagens -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <label class="carousel-caption text-center label-warning">Teste</label>
+                    <label class="carousel-caption text-capitalize"><font size="7" color="FFD700">Teste</font></label>
                     <img src="leitura.jpg" alt="Chania">
                 </div>
 
