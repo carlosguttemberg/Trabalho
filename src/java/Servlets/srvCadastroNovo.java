@@ -5,22 +5,22 @@
  */
 package Servlets;
 
-import controller.UsuarioController;
+import controller.AutorController;
+import controller.CategoriaController;
+import controller.EditoraController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Carlos
+ * @author Usuario
  */
-@WebServlet(name = "srvLogin", urlPatterns = {"/srvLogin"})
-public class srvLogin extends HttpServlet {
+public class srvCadastroNovo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,41 +35,30 @@ public class srvLogin extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            String cmd = request.getParameter("cmd");
             
+            String tipo = request.getParameter("tipo");
             
+            if(tipo.equals("autor")){
             
-            if(cmd.equals("incluir")){
-                String caminho = request.getParameter("arquivo");
                 String nome = request.getParameter("nome");
-                String senha = request.getParameter("senha");
-                String login = request.getParameter("login");
-                String email = request.getParameter("email");
-                UsuarioController.salvar(nome, login, senha, caminho, email);
-                RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+                AutorController.salvar(nome);
+                RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp"); 
                 rd.forward(request, response);
-            }else if(cmd.equals("autentica")){
-                String login = request.getParameter("txtlogin");
-                String senha = request.getParameter("txtsenha");
-                String status = "";
-                if (UsuarioController.validaUsuario(login, senha) == true) {
-
-                RequestDispatcher rd = request.getRequestDispatcher("srvLogin?cmd=inicial");
+                
+            }else if(tipo.equals("categoria")){
+                
+                String nome = request.getParameter("nome");
+                CategoriaController.salvar(nome);
+                RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp"); 
                 rd.forward(request, response);
-                } else {
-                    status = "Login ou senha incorretos";
-                    RequestDispatcher rd = request.getRequestDispatcher("index.jsp?status=" + status);
-                    rd.forward(request, response);
-                }
-            }else if(cmd.equals("inicial")){
-                String foto = "";
-                foto = UsuarioController.retornaCampo("3", "caminhofoto");
-                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto);
+                
+            }else if(tipo.equals("editora")){
+            
+                String nome = request.getParameter("nome");
+                EditoraController.salvar(nome);
+                RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp"); 
                 rd.forward(request, response);
             }
-            
-
         }
     }
 

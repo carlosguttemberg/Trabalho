@@ -68,7 +68,7 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form id="loginform" class="form-horizontal" role="form" action="srvCadastroNovo?tipo=autor">
+                        <form name="cadastroAutor" class="form-horizontal" action="srvCadastroNovo?tipo=autor" method="POST">
 
                             <div class="form-group">
                                 <label for="nome" class="col-md-3 control-label">Nome</label>

@@ -1,4 +1,8 @@
+<%
+       String foto = request.getParameter("foto");
+       
 
+    %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,8 +73,8 @@
             <div class="col-md-3">
                 <p class="lead">Shop Name</p>
                 <div class="list-group">
-                    <img class="slide-image" src="Quebec_citadelles_200x200.png" alt="">
-                    <a href="#" class="list-group-item">Cadastro Livro</a>
+                    <img class="slide-image" width="256px" weidth="256px" src=<%=foto%> alt="">
+                    <a href="cadastroLivro.jsp" class="list-group-item">Cadastro Livro</a>
                     <a href="#" class="list-group-item">Category 2</a>
                     <a href="#" class="list-group-item">Category 3</a>
                 </div>

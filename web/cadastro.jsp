@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="password" class="col-md-3 control-label">Login</label>
+                                <label for="login" class="col-md-3 control-label">Login</label>
                                 <div class="col-md-9">
                                     <input type="text" class="form-control" name="login" placeholder="">
                                 </div>
@@ -97,6 +97,16 @@
                                     <input type="password" class="form-control" name="senha" placeholder="">
                                 </div>
                             </div>
+                            
+                             <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">Foto de Perfil</label>
+                                <div class="col-md-9">
+                                    <input type="file" class="field" name="arquivo" placeholder="">
+                                </div>
+                                
+                            </div>
+                            
+                           
                                 
                             
                             <div style="margin-top:10px" class="form-group">
