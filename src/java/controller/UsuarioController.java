@@ -5,11 +5,13 @@
  */
 package controller;
 
+import dao.LivroDAO;
 import dao.UsuarioDAO;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.Livro;
 import modelo.Usuario;
 
 /**
@@ -83,5 +85,18 @@ public class UsuarioController {
         }
         return retorno;
     }
+     
+     /*Usar esta função para permitir que o usuário vincule um livor criado por outro usuário a conta dele
+     */
+     
+     public static void vinculaLivro(String idLivro, String idUsuario){
+        UsuarioDAO dao = new UsuarioDAO(); 
+        Usuario usuario = dao.findById(Integer.parseInt(idUsuario));
+        LivroDAO livrodao = new LivroDAO();
+        Livro livro = livrodao.findById(Integer.parseInt(idLivro));
+        usuario.adicionaLivro(livro);
+        dao.alterar(usuario);
+        
+     }
     
 }

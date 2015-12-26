@@ -23,7 +23,7 @@ import modelo.StatusLeitura;
  * @author Lucas
  */
 public class LivroController {
-      public static void salvar(String titulo, String ano, String volume, String paginas, String edicao, String caminhofoto, String idAutor, String idEditora, String idCategoria, String idStatus, String idStatusLeitura){
+      public static void salvar(String titulo, String ano, String volume, String paginas, String edicao, String caminhofoto, String idAutor, String idEditora, String idCategoria, String idStatus, String idStatusLeitura, String idUsuario){
         AutorDAO autordao = new AutorDAO();
         Autor autor = autordao.findById(Integer.parseInt(idAutor));
         EditoraDAO editoradao = new EditoraDAO();
@@ -38,6 +38,8 @@ public class LivroController {
         
         Livro l = new Livro(titulo, Integer.parseInt(ano), Integer.parseInt(volume), Integer.parseInt(paginas), edicao, caminhofoto, autor, editora, categoria, status, statusleitura);
         new LivroDAO().salvar(l);
+        UsuarioController.vinculaLivro(LivroController.retornaId(titulo)+"", new UsuarioDAO().findById(Integer.parseInt(idUsuario)).getId()+"");
+        
     }
     
     public static void editar(String id, String titulo, String ano, String volume, String paginas, String edicao, String caminhofoto, String idAutor, String idEditora, String idCategoria, String idStatus, String idStatusLeitura){
@@ -96,5 +98,11 @@ public class LivroController {
             retorno += "<option value='"+livros.get(i).getId() +"'>"+livros.get(i).getTitulo()+"</option>";
         }
         return retorno;
+    }
+     
+      public static int retornaId(String titulo){
+        LivroDAO dao = new LivroDAO();
+         Livro u = dao.findByCollumPalavra("titulo", titulo   );
+         return u.getId();
     }
 }
