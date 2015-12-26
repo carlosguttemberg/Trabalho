@@ -68,12 +68,12 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form id="loginform" class="form-horizontal" role="form" action="srvLogin?cmd=incluir" method="POST">
+                        <form id="loginform" class="form-horizontal" role="form" action="srvLogin?cmd=incluir" method="POST" enctype="multipart/form-data">
 
                             <div class="form-group">
                                 <label for="firstname" class="col-md-3 control-label">Nome Completo</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="nome" placeholder="Como consta no seu CPF">
+                                    <input type="text" required class="form-control" name="nome" placeholder="Como consta no seu CPF">
                                 </div>
                             </div>
                             
@@ -101,7 +101,7 @@
                              <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Foto de Perfil</label>
                                 <div class="col-md-9">
-                                    <input type="file" class="field" name="arquivo" placeholder="">
+                                    <input type="file" class="field" accept="image/jpeg; image/gif; image/bmp; image/png" name="arquivo" placeholder="">
                                 </div>
                                 
                             </div>

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets;
 
 import controller.UsuarioController;
@@ -64,7 +59,7 @@ public class srvLogin extends HttpServlet {
                 }
             }else if(cmd.equals("inicial")){
                 String foto = "";
-                foto = UsuarioController.retornaCampo("3", "caminhofoto");
+                foto = UsuarioController.retornaCampo("1", "caminhofoto");
                 RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto);
                 rd.forward(request, response);
             }
