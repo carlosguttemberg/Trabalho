@@ -7,6 +7,7 @@ package controller;
 
 import dao.GeneroDAO;
 import java.lang.reflect.Field;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Genero;
@@ -54,6 +55,16 @@ public class GeneroController {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        return retorno;
+    }
+     public static String retornaSelect(){
+        
+        GeneroDAO dao = new GeneroDAO();
+        List<Genero> generos = dao.findAll();
+        String retorno = "";
+        for(int i=0; i< generos.size(); i++){
+            retorno += "<option value='"+generos.get(i).getId() +"'>"+generos.get(i).getNome()+"</option>";
+        }
         return retorno;
     }
 }

@@ -27,7 +27,7 @@
                     <a class="navbar-brand" href="#">Gerenciamento de Livros</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
-                    <form class="navbar-form navbar-right" method="POST" action="srvLogin">
+                    <form class="navbar-form navbar-right" method="POST" action="srvLogin?cmd=autentica">
                         <label><font color ="ffffff"><%=status%></font></label>
                         <div class="form-group">
                             <input type="text" placeholder="Login" class="form-control" name="txtlogin">
@@ -36,10 +36,8 @@
                             <input type="password" placeholder="Senha" class="form-control" name="txtsenha">
                         </div>
                         
-
-                           
                         
-                            
+                        
                         <button type="submit" class="btn btn-success">Entrar</button>
                         <a href="cadastro.jsp" class="btn btn-success">Cadastrar-se</a>
                     </form>
@@ -65,20 +63,20 @@
             <!-- Slide das imagens -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <label class="carousel-caption text-center label-warning">Teste</label>
-                    <img src="leitura.jpg" alt="Chania">
+                    <label class="carousel-caption text-capitalize"><font size="7" color="FFD700">Teste</font></label>
+                    <img src="ler.jpg" alt="Chania">
                 </div>
 
                 <div class="item">
-                    <img src="colecao.jpg" alt="Chania">
+                    <img src="colec.jpg" alt="Chania">
                 </div>
 
                 <div class="item">
-                    <img src="melina.jpg" alt="Flower">
+                    <img src="mel.jpg" alt="Flower">
                 </div>
 
                 <div class="item">
-                    <img src="zoeira.jpg" alt="Flower">
+                    <img src="zoe.jpg" alt="Flower">
                 </div>
             </div>
 

@@ -5,10 +5,13 @@
  */
 package controller;
 
+import dao.CategoriaDAO;
 import dao.GeneroDAO;
 import java.lang.reflect.Field;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.Categoria;
 import modelo.Genero;
 
 /**
@@ -54,6 +57,17 @@ public class CategoriaController {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        return retorno;
+    }
+    
+    public static String retornaSelect(){
+        
+        CategoriaDAO dao = new CategoriaDAO();
+        List<Categoria> categorias = dao.findAll();
+        String retorno = "";
+        for(int i=0; i< categorias.size(); i++){
+            retorno += "<option value='"+categorias.get(i).getId() +"'>"+categorias.get(i).getNome()+"</option>";
+        }
         return retorno;
     }
 }

@@ -7,6 +7,7 @@ package controller;
 
 import dao.StatusDAO;
 import java.lang.reflect.Field;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Status;
@@ -54,6 +55,16 @@ public class StatusController {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        return retorno;
+    }
+     public static String retornaSelect(){
+        
+        StatusDAO dao = new StatusDAO();
+        List<Status> status = dao.findAll();
+        String retorno = "";
+        for(int i=0; i< status.size(); i++){
+            retorno += "<option value='"+status.get(i).getId() +"'>"+status.get(i).getNome()+"</option>";
+        }
         return retorno;
     }
 }

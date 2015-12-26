@@ -10,23 +10,22 @@
     <head>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cadastro do Usuário</title>
     </head>
     
     
     <body background="brushedmetal103.jpg">
-    <body>
-       <nav class="navbar navbar-inverse navbar-fixed-top">
+          <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.jsp">Gerenciamento de Livros</a>
-                </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.jsp">Gerenciamento de Livros</a>
+            </div>
                
             </div>
         </nav>
@@ -69,7 +68,7 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form id="loginform" class="form-horizontal" role="form" action="srvLogin">
+                        <form id="loginform" class="form-horizontal" role="form" action="srvLogin?cmd=incluir" method="POST">
 
                             <div class="form-group">
                                 <label for="firstname" class="col-md-3 control-label">Nome Completo</label>
@@ -86,17 +85,28 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="login" class="col-md-3 control-label">Login</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="login" placeholder="">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Senha</label>
                                 <div class="col-md-9">
                                     <input type="password" class="form-control" name="senha" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="password" class="col-md-3 control-label">Repita a Senha</label>
+                            
+                             <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">Foto de Perfil</label>
                                 <div class="col-md-9">
-                                    <input type="password" class="form-control" name="senha2" placeholder="">
+                                    <input type="file" class="field" name="arquivo" placeholder="">
                                 </div>
+                                
                             </div>
+                            
+                           
                                 
                             
                             <div style="margin-top:10px" class="form-group">
@@ -105,6 +115,7 @@
                                 <div class="col-sm-12 controls">
                                      <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
                                     <div style="padding-top:15px" class="panel-body" >
+                                        
                                     
                                     <button class="btn btn-lg btn-primary btn-success" type="submit">Cadastrar</button>
                                     <button class="btn btn-lg btn-primary btn-success" type="reset">Limpar</button>
@@ -112,11 +123,11 @@
                                     <!--<a id="btn-fblogin" href="#" class="btn btn-primary">Login comcebook</a>-->
                                     </div>
                                 </div>
-                            </div> 
                             </div>
+                        </form>
+                       </div>
                             
-                               
-                        </form>     
+                                  
 
 
 

@@ -65,6 +65,18 @@ public class AutorController {
         return retorno;
     }
     
+    public static String retornaSelect(){
+        
+        AutorDAO dao = new AutorDAO();
+        List<Autor> autores = dao.findAll();
+        String retorno = "";
+        for(int i=0; i< autores.size(); i++){
+            retorno += "<option value='"+autores.get(i).getId() +"'>"+autores.get(i).getNome()+"</option>";
+        }
+        return retorno;
+    }
+    
+    
   /* public static ModeloTabela listaAutors() {
         AutorDAO dao = new AutorDAO();
         List list = new ArrayList();
