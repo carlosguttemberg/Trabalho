@@ -7,6 +7,7 @@ package controller;
 
 import dao.EditoraDAO;
 import java.lang.reflect.Field;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Editora;
@@ -54,6 +55,17 @@ public class EditoraController {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        return retorno;
+    }
+    
+    public static String retornaSelect(){
+        
+        EditoraDAO dao = new EditoraDAO();
+        List<Editora> editoras = dao.findAll();
+        String retorno = "";
+        for(int i=0; i< editoras.size(); i++){
+            retorno += "<option value='"+editoras.get(i).getId() +"'>"+editoras.get(i).getNome()+"</option>";
+        }
         return retorno;
     }
 }

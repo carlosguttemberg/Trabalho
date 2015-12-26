@@ -87,9 +87,14 @@ public class GenericDao<T extends Serializable> {
         }
     }
  
-    public List<T> findAll() throws Exception {
-        Session session = (Session) getEntityManager().getDelegate();
-        return session.createCriteria(persistentClass)./*setResultTransformer(Transformers.aliasToBean(persistentClass)).*/list();
+    public List<T> findAll(){
+        List retorno = null;
+        try {
+            Session session = (Session) getEntityManager().getDelegate();
+            retorno = session.createCriteria(persistentClass)./*setResultTransformer(Transformers.aliasToBean(persistentClass)).*/list();
+        } catch (Exception e) {
+        }
+        return retorno;
     }
  
     public T findByName(String nome) {

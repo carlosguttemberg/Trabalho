@@ -10,6 +10,7 @@ import java.lang.reflect.Field;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import dao.*;
+import java.util.List;
 import modelo.Autor;
 import modelo.Categoria;
 import modelo.Editora;
@@ -83,6 +84,17 @@ public class LivroController {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        return retorno;
+    }
+    
+     public static String retornaSelect(){
+        
+        LivroDAO dao = new LivroDAO();
+        List<Livro> livros = dao.findAll();
+        String retorno = "";
+        for(int i=0; i< livros.size(); i++){
+            retorno += "<option value='"+livros.get(i).getId() +"'>"+livros.get(i).getTitulo()+"</option>";
+        }
         return retorno;
     }
 }

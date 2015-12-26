@@ -7,6 +7,7 @@ package controller;
 
 import dao.UsuarioDAO;
 import java.lang.reflect.Field;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Usuario;
@@ -39,6 +40,12 @@ public class UsuarioController {
         return false;
     }
     
+    public static int retornaId(String login){
+        UsuarioDAO dao = new UsuarioDAO();
+         Usuario u = dao.findByCollumPalavra("login", login);
+         return u.getId();
+    }
+    
     public static String retornaCampo(String id, String campo){
         String retorno = "";
         UsuarioDAO dao = new UsuarioDAO();
@@ -63,6 +70,17 @@ public class UsuarioController {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        return retorno;
+    }
+    
+     public static String retornaSelect(){
+        
+        UsuarioDAO dao = new UsuarioDAO();
+        List<Usuario> usuarios = dao.findAll();
+        String retorno = "";
+        for(int i=0; i< usuarios.size(); i++){
+            retorno += "<option value='"+usuarios.get(i).getId() +"'>"+usuarios.get(i).getNome()+"</option>";
+        }
         return retorno;
     }
     
