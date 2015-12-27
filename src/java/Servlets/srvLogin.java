@@ -32,20 +32,20 @@ public class srvLogin extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String cmd = request.getParameter("cmd");
-            
+            String login = request.getParameter("txtlogin");
             
             
             if(cmd.equals("incluir")){
-                String caminho = request.getParameter("arquivo");
+                String caminho = request.getParameter("caminho"); 
                 String nome = request.getParameter("nome");
                 String senha = request.getParameter("senha");
-                String login = request.getParameter("login");
+                login = request.getParameter("login");
                 String email = request.getParameter("email");
                 UsuarioController.salvar(nome, login, senha, caminho, email);
                 RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
                 rd.forward(request, response);
             }else if(cmd.equals("autentica")){
-                String login = request.getParameter("txtlogin");
+                login = request.getParameter("txtlogin");
                 String senha = request.getParameter("txtsenha");
                 String status = "";
                 if (UsuarioController.validaUsuario(login, senha) == true) {
@@ -59,12 +59,12 @@ public class srvLogin extends HttpServlet {
                 }
             }else if(cmd.equals("inicial")){
                 String foto = "";
-                foto = UsuarioController.retornaCampo("1", "caminhofoto");
+               
+                String aux = Integer.toString(UsuarioController.retornaId(login));
+                foto = UsuarioController.retornaCampo(aux, "caminhofoto");
                 RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto);
                 rd.forward(request, response);
             }
-            
-
         }
     }
 
