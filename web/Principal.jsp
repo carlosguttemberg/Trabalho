@@ -2,7 +2,7 @@
        String foto = request.getParameter("foto");
        
        String login = session.getAttribute("login").toString();
-    %>
+%>
 <!DOCTYPE html>
 <html lang="en">
 
