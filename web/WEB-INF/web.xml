@@ -4,9 +4,17 @@
         <servlet-name>srvCadastroNovo</servlet-name>
         <servlet-class>Servlets.srvCadastroNovo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>srvCadastroLivro</servlet-name>
+        <servlet-class>Servlets.srvCadastroLivro</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>srvCadastroNovo</servlet-name>
         <url-pattern>/srvCadastroNovo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvCadastroLivro</servlet-name>
+        <url-pattern>/srvCadastroLivro</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
