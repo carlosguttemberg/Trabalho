@@ -1,10 +1,14 @@
 <%
        String foto = request.getParameter("foto");
        
+
        
        String nome = session.getAttribute("nome").toString();
        
     %>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 

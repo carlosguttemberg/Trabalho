@@ -8,6 +8,7 @@ package Servlets;
 import controller.LivroController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,10 +46,12 @@ public class srvCadastroLivro extends HttpServlet {
             String volume = request.getParameter("volume");
             String idStatus = request.getParameter("selStatusLivro");
             String idStatusLeitura = request.getParameter("selStatusLeitura");
+            String idUsuario = request.getParameter("idUsuario");
             
-            LivroController.salvar(titulo, ano, volume, paginas, edicao, "", idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura, "1");
+            LivroController.salvar(titulo, ano, volume, paginas, edicao, "", idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura, idUsuario);
             
-           
+            RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp");
+            rd.forward(request, response);
             
         }
     }
