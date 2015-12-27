@@ -74,7 +74,7 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form id="loginform" class="form-horizontal" role="form" action="salvarArquivo.jsp" method="POST" enctype="multipart/form-data">
+                        <form id="loginform" class="form-horizontal" role="form" action="srvLogin?cmd=incluir" method="POST" >
 
                             <div class="form-group">
                                 <label for="firstname" class="col-md-3 control-label">Nome Completo</label>
@@ -104,7 +104,6 @@
                                 </div>
                             </div>
                             
-                            <!--
                             <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Caminho para a foto</label>
                                 <div class="col-md-9">
@@ -113,9 +112,9 @@
                                 <label><font color ="FF0000"><%=resposta%></font></label>
                             </div>
                             
-                            -->
                             
                             
+                            <!--
                              <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Foto de Perfil</label>
                                 <div class="col-md-9">
@@ -123,7 +122,7 @@
                                 </div>
                                 
                             </div>
-                           
+                            -->
                            
                                 
                             
