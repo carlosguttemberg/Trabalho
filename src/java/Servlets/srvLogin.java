@@ -63,6 +63,13 @@ public class srvLogin extends HttpServlet {
                     HttpSession session = request.getSession();
                     session.setAttribute("idUsuario", UsuarioController.retornaId(login));
                     session.setAttribute("login", login);
+                    session.setAttribute("senha", senha);
+                    
+                    String aux = session.getAttribute("idUsuario").toString();
+                    session.setAttribute("email", UsuarioController.retornaCampo(aux, "email"));
+                    session.setAttribute("nome", UsuarioController.retornaCampo(aux, "nome"));
+                    
+                    
                     RequestDispatcher rd = request.getRequestDispatcher("srvLogin?cmd=inicial");
                     rd.forward(request, response);
                 } else {
@@ -75,6 +82,20 @@ public class srvLogin extends HttpServlet {
                
                 String aux = Integer.toString(UsuarioController.retornaId(login));
                 foto = UsuarioController.retornaCampo(aux, "caminhofoto");
+                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto);
+                rd.forward(request, response);
+            }else if(cmd.equals("altera")){
+                String imagem = request.getParameter("imagem");
+                HttpSession session = request.getSession();
+                String logon = session.getAttribute("login").toString();
+                String email = session.getAttribute("email").toString();
+                String nome = session.getAttribute("nome").toString();
+                String senha = session.getAttribute("senha").toString();
+                String id = session.getAttribute("idUsuario").toString();
+                
+                UsuarioController.editar(id, nome, logon, senha, imagem, email);
+                String foto = UsuarioController.retornaCampo(id, "caminhofoto");
+                
                 RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto);
                 rd.forward(request, response);
             }

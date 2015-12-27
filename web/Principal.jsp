@@ -1,7 +1,9 @@
 <%
        String foto = request.getParameter("foto");
        
-       String login = session.getAttribute("login").toString();
+       
+       String nome = session.getAttribute("nome").toString();
+       
     %>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Bem vindo <%=login%> !</a>
+                <a class="navbar-brand" href="#">Bem vindo <%=nome%>!</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -68,7 +70,7 @@
             <div class="col-md-3">
                 <p class="lead">Shop Name</p>
                 <div class="list-group">
-                    <img class="slide-image" width="256px" weidth="256px" src=<%=login + ".jpeg"%> alt="">
+                    <img class="slide-image" width="256px" weidth="256px" src=<%=foto%> alt="">
                     <a href="srvCadastroNovo?tipo=listar" class="list-group-item">Cadastro Livro</a>
                     <a href="perfil.jsp" class="list-group-item">Foto Perfil</a>
                     <a href="#" class="list-group-item">Category 3</a>

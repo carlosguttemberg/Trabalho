@@ -14,9 +14,11 @@
         FileItem fi = (FileItem) i.next();
 
         InputStream in = fi.getInputStream();
+        
+        String imagem = login + ".jpeg";
 
         File file = new File("C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/build/web/" + login + ".jpeg");
-
+        
         FileOutputStream fos = new FileOutputStream(file);
 
         int c;
@@ -25,8 +27,8 @@
         }
 
         fos.close();
-        out.println("arquivo salvo: C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/imagem/");
-        RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
+        //out.println("arquivo salvo: C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/imagem/");
+        RequestDispatcher rd = request.getRequestDispatcher("srvLogin?cmd=altera&imagem=" + imagem);
         rd.forward(request, response);
     } catch (Exception e) {
         out.println(e.toString());
