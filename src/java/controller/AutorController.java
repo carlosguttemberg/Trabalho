@@ -26,7 +26,11 @@ public class AutorController {
     
     public static void salvar(String nome){
         Autor a = new Autor(nome);
-        new AutorDAO().salvar(a);
+        try {
+            new AutorDAO().salvar(a);
+        } catch (Exception ex) {
+            Logger.getLogger(AutorController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void editar(String id, String nome){

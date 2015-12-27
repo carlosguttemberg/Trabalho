@@ -19,7 +19,11 @@ import modelo.Editora;
 public class EditoraController {
     public static void salvar(String nome){
         Editora e = new Editora(nome);
-        new EditoraDAO().salvar(e);
+        try {
+            new EditoraDAO().salvar(e);
+        } catch (Exception ex) {
+            Logger.getLogger(EditoraController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void editar(String id, String nome){

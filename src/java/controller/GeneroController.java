@@ -19,7 +19,11 @@ import modelo.Genero;
 public class GeneroController {
     public static void salvar(String nome){
         Genero g = new Genero(nome);
-        new GeneroDAO().salvar(g);
+        try {
+            new GeneroDAO().salvar(g);
+        } catch (Exception ex) {
+            Logger.getLogger(GeneroController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void editar(String id, String nome){

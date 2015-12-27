@@ -17,7 +17,7 @@ import org.hibernate.criterion.Restrictions;
  */
 public class EditoraDAO extends GenericDao<Editora>{
     //public class ClienteDAO extends GenericDao<Cliente> {
-    public void salvar(Editora editora) {
+    public void salvar(Editora editora)  throws Exception {
         save(editora);
     }
  

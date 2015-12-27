@@ -19,7 +19,11 @@ import modelo.Status;
 public class StatusController {
     public static void salvar(String nome){
         Status s = new Status(nome);
-        new StatusDAO().salvar(s);
+        try {
+            new StatusDAO().salvar(s);
+        } catch (Exception ex) {
+            Logger.getLogger(StatusController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void editar(String id, String nome){

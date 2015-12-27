@@ -20,6 +20,8 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.lang.Object;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.transform.Transformers;
@@ -41,19 +43,24 @@ public class GenericDao<T extends Serializable> {
         return entityManager;
     }
  
-    protected void save(T entity) {
+    protected String save(T entity) throws Exception{
         EntityTransaction tx = getEntityManager().getTransaction();
- 
+        String retorno = "";
         try {
             tx.begin();
             getEntityManager().persist(entity);
             tx.commit();
-        } catch (Throwable t) {
-            t.printStackTrace();
+        } catch (Exception e/*Throwable t*/) {
+            //t.printStackTrace();
+            //retorno += t.getMessage();
             tx.rollback();
+            throw new Exception(e.getMessage() , e);
+            
+    
         } finally {
             close();
         }
+        return retorno;
     }
  
     protected void update(T entity) {
