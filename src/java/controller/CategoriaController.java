@@ -6,13 +6,11 @@
 package controller;
 
 import dao.CategoriaDAO;
-import dao.GeneroDAO;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Categoria;
-import modelo.Genero;
 
 /**
  *
@@ -20,31 +18,31 @@ import modelo.Genero;
  */
 public class CategoriaController {
     public static void salvar(String nome){
-        Genero g = new Genero(nome);
-        new GeneroDAO().salvar(g);
+        Categoria ca = new Categoria(nome);
+        new CategoriaDAO().salvar(ca);
     }
     
     public static void editar(String id, String nome){
-        Genero g = new Genero(Integer.parseInt(id), nome);
-        new GeneroDAO().alterar(g);
+        Categoria ca = new Categoria(Integer.parseInt(id), nome);
+        new CategoriaDAO().alterar(ca);
     }
     
     public static void excluir(String id){
-        new GeneroDAO().excluir(Integer.parseInt(id));
+        new CategoriaDAO().excluir(Integer.parseInt(id));
     }
     
     public static String retornaCampo(String id, String campo){
         String retorno = "";
-        GeneroDAO dao = new GeneroDAO();
-        Genero g = dao.findById(Integer.parseInt(id));
+        CategoriaDAO dao = new CategoriaDAO();
+        Categoria ca = dao.findById(Integer.parseInt(id));
        
         try {
-            Class<?> classe = Genero.class;
+            Class<?> classe = Categoria.class;
             Field atributo;
             atributo = classe.getDeclaredField(campo);
             atributo.setAccessible(true);
             Object value;    
-            value = atributo.get(g);
+            value = atributo.get(ca);
             retorno = value.toString();
 
         } catch (NoSuchFieldException ex) {

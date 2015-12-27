@@ -15,8 +15,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
@@ -53,6 +55,9 @@ public class Livro implements Serializable {
     @OneToOne
     @JoinColumn(name = "idStatusLeitura")
     private StatusLeitura statusleitura;
+    /*@ManyToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Usuario> usuarios;*/
 
     public Livro() {
     }

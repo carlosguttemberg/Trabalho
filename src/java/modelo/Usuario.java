@@ -6,11 +6,14 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -36,6 +39,9 @@ public class Usuario implements Serializable {
     private String email;
     //@Column(name = "genero")
     //private String email;
+    @ManyToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Livro> livros;
 
     public Usuario() {
     }
@@ -99,6 +105,11 @@ public class Usuario implements Serializable {
         this.email = email;
     }
     
-    
+    public void adicionaLivro(Livro livro){
+        this.livros.add(livro);
+    }
+    public void removeLivro(Livro livro){
+        this.livros.remove(livro);
+    }
     
 }
