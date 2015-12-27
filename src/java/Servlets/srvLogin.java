@@ -94,9 +94,9 @@ public class srvLogin extends HttpServlet {
                 String id = session.getAttribute("idUsuario").toString();
                 
                 UsuarioController.editar(id, nome, logon, senha, imagem, email);
-                String foto = UsuarioController.retornaCampo(id, "caminhofoto");
+               
                 
-                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto);
+                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + imagem);
                 rd.forward(request, response);
             }
         }
