@@ -43,8 +43,10 @@ public class UsuarioController {
          UsuarioDAO dao = new UsuarioDAO();
          Usuario u = dao.findByCollumPalavra("login", login);
         if(u != null){
-          if(u.getSenha().equals(senha))  
+          if(u.getSenha().equals(senha))  {
+              
             return true;
+          }
         }
         return false;
     }
