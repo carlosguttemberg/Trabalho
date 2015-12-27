@@ -3,7 +3,13 @@
     Created on : 20/12/2015, 10:01:29
     Author     : Carlos
 --%>
-
+<%
+    String resposta= request.getParameter("resp");
+    
+    if (resposta == null) {
+            resposta = "";
+        }
+    %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -104,6 +110,8 @@
                                     <input type="text" required class="form-control" name="caminho" placeholder="">
                                 </div>
                             </div>
+                            
+                            <label><font color ="FF0000"><%=resposta%></font></label>
                             
                             <!--
                              <div class="form-group">
