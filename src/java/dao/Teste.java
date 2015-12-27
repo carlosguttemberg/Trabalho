@@ -26,7 +26,7 @@ public class Teste {
         // TODO code application logic here
         
 
-       Configuration config = new Configuration();
+       //Configuration config = new Configuration();
 
        /*Configuration config = new Configuration();
        
@@ -63,11 +63,11 @@ public class Teste {
 =======
 =======
         
->>>>>>> origin/master
+>>>>>>>origin/master
         // PARA CRIAR AS TABELAS NO BANCO SÓ DESCOMENTAR A LINHA ABAIXO -- PRECISA CRIAR O BANCO PRIMEIRO
-       // new SchemaExport(config).create(true, true);
+       new SchemaExport(config).create(true, true);
        //E PARA ATUALIZAR, A LINHA ABAIXO
-       //new SchemaUpdate(config).execute(true, true);*/
+       new SchemaUpdate(config).execute(true, true);*/
        
        
        
@@ -89,6 +89,36 @@ public class Teste {
 
      // new SchemaUpdate(config).execute(true, true);
 
+
+       
+       
+       
+       
+       Configuration config = new Configuration();
+
+
+       
+
+       config.addAnnotatedClass(Autor.class);
+       config.addAnnotatedClass(Categoria.class);
+       config.addAnnotatedClass(Editora.class);
+       config.addAnnotatedClass(Genero.class);
+       config.addAnnotatedClass(Status.class);
+       config.addAnnotatedClass(StatusLeitura.class);
+       config.addAnnotatedClass(Usuario.class);
+       config.addAnnotatedClass(Livro.class);
+       
+        
+
+        config.configure("hibernate.cfg.xml");
+
+
+                    
+
+        // PARA CRIAR AS TABELAS NO BANCO SÓ DESCOMENTAR A LINHA ABAIXO -- PRECISA CRIAR O BANCO PRIMEIRO
+       new SchemaExport(config).create(true, true);
+       //E PARA ATUALIZAR, A LINHA ABAIXO
+       //new SchemaUpdate(config).execute(true, true);
 
     }
     
