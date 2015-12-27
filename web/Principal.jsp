@@ -1,5 +1,5 @@
 <%
-       String foto = request.getParameter("foto");
+       String imagem = request.getParameter("foto");
        
 
        
@@ -78,7 +78,7 @@
             <div class="col-md-3">
                 <p class="lead">Gerenciamento de Livros</p>
                 <div class="list-group">
-                    <img class="slide-image" width="256px" weidth="256px" src=<%=foto%> alt="">
+                    <img class="slide-image" width="256px" weidth="256px" src=<%=imagem%> alt="">
                     <a href="srvCadastroNovo?tipo=listar" class="list-group-item">Cadastro Livro</a>
                     <a href="perfil.jsp" class="list-group-item">Foto Perfil</a>
                     <a href="#" class="list-group-item">Category 3</a>
