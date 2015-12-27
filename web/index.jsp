@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="item">
-                    <label class="carousel-caption text-capitalize"><font size="7" color="FFD700">Reuna seus livros preferidos</font></label>
+                    <label class="carousel-caption text-capitalize"><font size="7" color="FFD700">Reúna seus livros preferidos</font></label>
                     <img src="mel.jpg" alt="Flower">
                 </div>
 

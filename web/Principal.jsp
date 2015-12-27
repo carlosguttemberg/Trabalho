@@ -50,14 +50,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="index.jsp">Desconectar-se</a>
                     </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -73,7 +68,7 @@
             <div class="col-md-3">
                 <p class="lead">Shop Name</p>
                 <div class="list-group">
-                    <img class="slide-image" width="256px" weidth="256px" src=<%=foto%> alt="">
+                    <img class="slide-image" width="256px" weidth="256px" src=<%=login + ".jpeg"%> alt="">
                     <a href="srvCadastroNovo?tipo=listar" class="list-group-item">Cadastro Livro</a>
                     <a href="perfil.jsp" class="list-group-item">Foto Perfil</a>
                     <a href="#" class="list-group-item">Category 3</a>

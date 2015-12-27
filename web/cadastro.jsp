@@ -102,8 +102,13 @@
                                 <div class="col-md-9">
                                     <input type="password" required class="form-control" name="senha" placeholder="">
                                 </div>
+                                
                             </div>
-                            
+                            <div class="form-group">
+                               
+                                    <label for="password" class="col-md-3 control-label" ><font color ="FF0000"><%=resposta%></font></label>
+                                
+                            </div>
                             <!--
                             <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Caminho para a foto</label>

@@ -15,7 +15,7 @@
 
         InputStream in = fi.getInputStream();
 
-        File file = new File("C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/Imagem/" + login + ".jpeg");
+        File file = new File("C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/build/web/" + login + ".jpeg");
 
         FileOutputStream fos = new FileOutputStream(file);
 
@@ -26,8 +26,8 @@
 
         fos.close();
         out.println("arquivo salvo: C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/imagem/");
-        //RequestDispatcher rd = request.getRequestDispatcher("srvLogin?cmd=incluir&caminho=" + 
-        //rd.forward(request, response);
+        RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
+        rd.forward(request, response);
     } catch (Exception e) {
         out.println(e.toString());
     }
