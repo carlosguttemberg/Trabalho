@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Colecao</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -61,6 +61,10 @@
         </div>
         <!-- /.container -->
     </nav>
+            
+            
+     
+            
 
     <!-- Page Content -->
     <div class="container">
@@ -68,7 +72,7 @@
         <div class="row">
 
             <div class="col-md-3">
-                <p class="lead">Shop Name</p>
+                <p class="lead">Gerenciamento de Livros</p>
                 <div class="list-group">
                     <img class="slide-image" width="256px" weidth="256px" src=<%=foto%> alt="">
                     <a href="srvCadastroNovo?tipo=listar" class="list-group-item">Cadastro Livro</a>
@@ -77,6 +81,8 @@
                 </div>
             </div>
 
+                    
+            
             <div class="col-md-9">
 
                 <div class="row carousel-holder">
@@ -113,6 +119,62 @@
 
                 </div>
 
+   
+        <br><br>
+        
+        <div class="row">
+            <div class="col-sm-2 col-lg-2 col-md-2">
+                        <div class="thumbnail">                            
+                            <div class="caption">                               
+                                <h4><label>Lendo</label>
+                                </h4>                               
+                            </div>                           
+                        </div>
+                    </div>
+            
+            
+            <div class="col-sm-2 col-lg-2 col-md-2">
+                        <div class="thumbnail">                            
+                            <div class="caption">                               
+                                <h4><label>Lido</label>
+                                </h4>                               
+                            </div>                           
+                        </div>
+            </div>
+            
+            
+            <div class="col-sm-2 col-lg-2 col-md-2">
+                        <div class="thumbnail">                            
+                            <div class="caption">                               
+                                <h4><label>Quero Ler</label>
+                                </h4>                               
+                            </div>                           
+                        </div>
+            </div>
+            
+            <div class="col-sm-2 col-lg-2 col-md-2">
+                        <div class="thumbnail">                            
+                            <div class="caption">                               
+                                <h4><label>Relendo</label>
+                                </h4>                               
+                            </div>                           
+                        </div>
+            </div>
+            
+            
+            <div class="col-sm-2 col-lg-2 col-md-2">
+                        <div class="thumbnail">                            
+                            <div class="caption">                               
+                                <h4><label>Desisti</label>
+                                </h4>                               
+                            </div>                           
+                        </div>
+            </div>
+            
+        </div>
+  
+        <br><br>
+                
                 
                 <div class="row">
                     <div class="col-sm-4 col-lg-4 col-md-4">
