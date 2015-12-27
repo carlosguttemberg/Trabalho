@@ -73,7 +73,7 @@
             <div class="col-md-3">
                 <p class="lead">Shop Name</p>
                 <div class="list-group">
-                    <img class="slide-image" width="256px" weidth="256px" src=<%=foto%> alt="">
+                    <img class="slide-image" width="256 px" weidth="256px" src=<%=foto%> alt="">
                     <a href="cadastroLivro.jsp" class="list-group-item">Cadastro Livro</a>
                     <a href="#" class="list-group-item">Category 2</a>
                     <a href="#" class="list-group-item">Category 3</a>
@@ -93,12 +93,15 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
+                                    <label class="carousel-caption text-capitalize"><font size="5" color="FFD700">Reuna seus livros</font></label>
                                     <img class="slide-image" src="books.jpg" alt="">
                                 </div>
                                 <div class="item">
+                                    <label class="carousel-caption text-capitalize"><font size="5" color="FFD700">Gerencie sua leitura</font></label>
                                     <img class="slide-image" src="lendo.jpg" alt="">
                                 </div>
                                 <div class="item">
+                                    <label class="carousel-caption text-capitalize"><font size="5" color="FFD700">Desfrute da leitura</font></label>
                                     <img class="slide-image" src="leitura.jpg" alt="">
                                 </div>
                             </div>
@@ -113,8 +116,6 @@
 
                 </div>
 
-                
-                
                 
                 <div class="row">
                     <div class="col-sm-4 col-lg-4 col-md-4">

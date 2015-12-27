@@ -63,19 +63,22 @@
             <!-- Slide das imagens -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <label class="carousel-caption text-capitalize"><font size="7" color="FFD700">Teste</font></label>
+                    <label class="carousel-caption text-capitalize"><font size="7" color="FFD700">Gerencie seu status de Leitura</font></label>
                     <img src="ler.jpg" alt="Chania">
                 </div>
 
                 <div class="item">
+                    <label class="carousel-caption text-capitalize"><font size="7" color="FFD700">Organize suas coleções</font></label>
                     <img src="colec.jpg" alt="Chania">
                 </div>
 
                 <div class="item">
+                    <label class="carousel-caption text-capitalize"><font size="7" color="FFD700">Reuna seus livros preferidos</font></label>
                     <img src="mel.jpg" alt="Flower">
                 </div>
 
                 <div class="item">
+                    <label class="carousel-caption text-capitalize"><font size="7" color="FFD700">Serve até para quem não sabe ler</font></label>
                     <img src="zoe.jpg" alt="Flower">
                 </div>
             </div>
