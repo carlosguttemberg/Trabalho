@@ -14,6 +14,7 @@ import java.util.List;
 import modelo.Autor;
 import modelo.Categoria;
 import modelo.Editora;
+import modelo.Genero;
 import modelo.Livro;
 import modelo.Status;
 import modelo.StatusLeitura;
@@ -24,7 +25,7 @@ import modelo.Usuario;
  * @author Lucas
  */
 public class LivroController {
-      public static String salvar(String titulo, String ano, String volume, String paginas, String edicao, String caminhofoto, String idAutor, String idEditora, String idCategoria, String idStatus, String idStatusLeitura, String idUsuario){
+      public static String salvar(String titulo, String ano, String volume, String paginas, String edicao, String caminhofoto, String idAutor, String idEditora, String idCategoria, String idGenero, String idStatus, String idStatusLeitura, String idUsuario){
           String retorno = "";
         try {
             AutorDAO autordao = new AutorDAO();
@@ -33,13 +34,15 @@ public class LivroController {
             Editora editora = editoradao.findById(Integer.parseInt(idEditora));
             CategoriaDAO categoriadao = new CategoriaDAO();
             Categoria categoria = categoriadao.findById(Integer.parseInt(idCategoria));
+            GeneroDAO generodao = new GeneroDAO();
+            Genero genero = generodao.findById(Integer.parseInt(idGenero));            
             StatusDAO statusdao = new StatusDAO();
             Status status = statusdao.findById(Integer.parseInt(idStatus));
             StatusLeituraDAO statusleituradao = new StatusLeituraDAO();
             StatusLeitura statusleitura = statusleituradao.findById(Integer.parseInt(idStatusLeitura));
 
 
-            Livro l = new Livro(titulo, Integer.parseInt(ano), Integer.parseInt(volume), Integer.parseInt(paginas), edicao, caminhofoto, autor, editora, categoria, status, statusleitura);
+            Livro l = new Livro(titulo, Integer.parseInt(ano), Integer.parseInt(volume), Integer.parseInt(paginas), edicao, caminhofoto, autor, editora, categoria, genero, status, statusleitura);
             new LivroDAO().salvar(l);
             UsuarioController.vinculaLivro(LivroController.retornaId(titulo)+"", new UsuarioDAO().findById(Integer.parseInt(idUsuario)).getId()+"");
           } catch (Exception e) {
@@ -52,19 +55,21 @@ public class LivroController {
         
     }
     
-    public static void editar(String id, String titulo, String ano, String volume, String paginas, String edicao, String caminhofoto, String idAutor, String idEditora, String idCategoria, String idStatus, String idStatusLeitura){
+    public static void editar(String id, String titulo, String ano, String volume, String paginas, String edicao, String caminhofoto, String idAutor, String idEditora, String idCategoria, String idGenero, String idStatus, String idStatusLeitura){
         AutorDAO autordao = new AutorDAO();
         Autor autor = autordao.findById(Integer.parseInt(idAutor));
         EditoraDAO editoradao = new EditoraDAO();
         Editora editora = editoradao.findById(Integer.parseInt(idEditora));
         CategoriaDAO categoriadao = new CategoriaDAO();
         Categoria categoria = categoriadao.findById(Integer.parseInt(idCategoria));
+        GeneroDAO generodao = new GeneroDAO();
+        Genero genero = generodao.findById(Integer.parseInt(idGenero));
         StatusDAO statusdao = new StatusDAO();
         Status status = statusdao.findById(Integer.parseInt(idStatus));
         StatusLeituraDAO statusleituradao = new StatusLeituraDAO();
         StatusLeitura statusleitura = statusleituradao.findById(Integer.parseInt(idStatusLeitura));
         
-        Livro l = new Livro(Integer.parseInt(id), titulo, Integer.parseInt(ano), Integer.parseInt(volume), Integer.parseInt(paginas), edicao, caminhofoto, autor, editora, categoria, status, statusleitura);
+        Livro l = new Livro(Integer.parseInt(id), titulo, Integer.parseInt(ano), Integer.parseInt(volume), Integer.parseInt(paginas), edicao, caminhofoto, autor, editora, categoria, genero, status, statusleitura);
         new LivroDAO().alterar(l);
     }
     
