@@ -77,7 +77,7 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form id="loginform" class="form-horizontal" role="form" action="srvLogin">
+                        <form id="loginform" class="form-horizontal" role="form" action="srvCadastroLivro">
 
                             <div class="form-group">
                                 <label for="titulo" class="col-md-3 control-label">Título</label>
