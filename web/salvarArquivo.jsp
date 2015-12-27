@@ -4,7 +4,7 @@
 
 <%
     try {
-        String nomeimagem = request.getParameter("file1");     
+        String login = session.getAttribute("login").toString();    
         DiskFileUpload fu = new DiskFileUpload();
 
         List fileItems = fu.parseRequest(request);
@@ -15,7 +15,7 @@
 
         InputStream in = fi.getInputStream();
 
-        File file = new File("C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/Imagem/" + nomeimagem + ".jpeg");
+        File file = new File("C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/Imagem/" + login + ".jpeg");
 
         FileOutputStream fos = new FileOutputStream(file);
 
