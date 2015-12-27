@@ -4,14 +4,7 @@
 
 <%
     try {
-        
-        String caminho = request.getParameter("nomeimagem");
-        String nome = request.getParameter("nome");
-        String senha = request.getParameter("senha");
-        String login = request.getParameter("login");
-        String email = request.getParameter("email");
-        
-        
+        String nomeimagem = request.getParameter("file1");     
         DiskFileUpload fu = new DiskFileUpload();
 
         List fileItems = fu.parseRequest(request);
@@ -22,7 +15,7 @@
 
         InputStream in = fi.getInputStream();
 
-        File file = new File("C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/Imagem/" + "teste.jpeg");
+        File file = new File("C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/Imagem/" + nomeimagem + ".jpeg");
 
         FileOutputStream fos = new FileOutputStream(file);
 
@@ -33,7 +26,7 @@
 
         fos.close();
         out.println("arquivo salvo: C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/imagem/");
-        //RequestDispatcher rd = request.getRequestDispatcher("srvLogin?cmd=incluir&caminho=" + caminho + "&nome=" + nome + "&senha=" + senha + "&login=" + login + "&email=" + email);
+        //RequestDispatcher rd = request.getRequestDispatcher("srvLogin?cmd=incluir&caminho=" + 
         //rd.forward(request, response);
     } catch (Exception e) {
         out.println(e.toString());

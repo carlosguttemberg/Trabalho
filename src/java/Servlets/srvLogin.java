@@ -37,7 +37,7 @@ public class srvLogin extends HttpServlet {
             
             if(cmd.equals("incluir")){
                 String resp ="";
-                String caminho = "C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/imagem" + request.getParameter("caminho"); 
+                String caminho = "usuario.png"; 
                 String nome = request.getParameter("nome");
                 String senha = request.getParameter("senha");
                 login = request.getParameter("login");
