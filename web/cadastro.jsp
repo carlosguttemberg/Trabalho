@@ -81,27 +81,27 @@
                             <div class="form-group">
                                 <label for="email" class="col-md-3 control-label">E-mail</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="email" placeholder="exemplo@gmail.com">
+                                    <input type="text" required class="form-control" name="email" placeholder="exemplo@gmail.com">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="login" class="col-md-3 control-label">Login</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="login" placeholder="">
+                                    <input type="text" required class="form-control" name="login" placeholder="">
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Senha</label>
                                 <div class="col-md-9">
-                                    <input type="password" class="form-control" name="senha" placeholder="">
+                                    <input type="password" required class="form-control" name="senha" placeholder="">
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Caminho para a foto</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="caminho" placeholder="">
+                                    <input type="text" required class="form-control" name="caminho" placeholder="">
                                 </div>
                             </div>
                             
