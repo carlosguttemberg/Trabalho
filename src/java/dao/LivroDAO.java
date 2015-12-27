@@ -35,4 +35,9 @@ public class LivroDAO extends GenericDao<Livro>{
         return session.createCriteria(this.getPersistentClass()).add(Restrictions.sqlRestriction("nome like '" + nome + "%'")).list();
         
     }
+     public List<Livro> listaLivrosPorIdUsuario(int idUsuario){
+        Session session = (Session) getEntityManager().getDelegate();
+        return session.createCriteria(this.getPersistentClass()).add(Restrictions.eq("idUsuario", idUsuario)).list();
+        
+    }
 }

@@ -179,6 +179,14 @@ public class Livro implements Serializable {
     public void setStatusleitura(StatusLeitura statusleitura) {
         this.statusleitura = statusleitura;
     }
+
+    public String getCaminhofoto() {
+        return caminhofoto;
+    }
+
+    public void setCaminhofoto(String caminhofoto) {
+        this.caminhofoto = caminhofoto;
+    }
     
      
     

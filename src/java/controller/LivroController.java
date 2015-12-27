@@ -17,6 +17,7 @@ import modelo.Editora;
 import modelo.Livro;
 import modelo.Status;
 import modelo.StatusLeitura;
+import modelo.Usuario;
 
 /**
  *
@@ -113,5 +114,62 @@ public class LivroController {
         LivroDAO dao = new LivroDAO();
          Livro u = dao.findByCollumPalavra("titulo", titulo   );
          return u.getId();
+    }
+      
+    public static String listaLivroPorUsuario(String idUsuario){
+        String retorno = "";
+        
+        /*
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="http://placehold.it/320x150" alt="">
+                <div class="caption">
+                    <h4 class="pull-right">$64.99</h4>
+                    <h4><a href="#">Second Product</a>
+                    </h4>
+                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">12 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        */
+        UsuarioDAO usuariodao = new UsuarioDAO();
+        Usuario usuario = usuariodao.findById(Integer.parseInt(idUsuario));
+        //LivroDAO livrodao = new LivroDAO();
+        List<Livro> livros = usuario.getLivros();//livrodao.listaLivrosPorIdUsuario(Integer.parseInt(idUsuario));
+        for(int i = 0; i <livros.size(); i++){
+            retorno += "" +
+            "<div class=\"col-sm-4 col-lg-4 col-md-4\">\n" +
+            "   <div class=\"thumbnail\">" + 
+            "       <img src='"+livros.get(i).getCaminhofoto() + "' alt=''>" +
+            "        <div class=\"caption\">  " +
+            "           <h4 class=\"pull-right\">$64.99</h4>" + 
+            "           <h4><a href=\"#\">"+ livros.get(i).getTitulo() + "</a></h4>"+
+            "        </div>   "+
+            "        <div class=\"ratings\">\n" +
+            "            <p class=\"pull-right\">12 reviews</p>\n" +
+            "            <p>\n" +
+            "            <span class=\"glyphicon glyphicon-star\"></span>\n" +
+            "            <span class=\"glyphicon glyphicon-star\"></span>\n" +
+            "            <span class=\"glyphicon glyphicon-star\"></span>\n" +
+            "            <span class=\"glyphicon glyphicon-star\"></span>\n" +
+            "            <span class=\"glyphicon glyphicon-star-empty\"></span>\n" +
+            "            </p>\n" +
+            "            </div>\n" +
+            "            </div>\n" +
+            "        </div>"       ;
+            
+        }
+        
+        return retorno;
     }
 }
