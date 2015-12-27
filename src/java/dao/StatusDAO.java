@@ -17,7 +17,7 @@ import org.hibernate.criterion.Restrictions;
  */
 public class StatusDAO extends GenericDao<Status>{
     //public class ClienteDAO extends GenericDao<Cliente> {
-    public void salvar(Status status) {
+    public void salvar(Status status) throws Exception{
         save(status);
     }
  

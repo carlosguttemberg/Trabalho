@@ -21,7 +21,11 @@ import modelo.StatusLeitura;
 public class StatusLeituraController {
      public static void salvar(String nome){
         StatusLeitura s = new StatusLeitura(nome);
-        new StatusLeituraDAO().salvar(s);
+         try {
+             new StatusLeituraDAO().salvar(s);
+         } catch (Exception ex) {
+             Logger.getLogger(StatusLeituraController.class.getName()).log(Level.SEVERE, null, ex);
+         }
     }
     
     public static void editar(String id, String nome){

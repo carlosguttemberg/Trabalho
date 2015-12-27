@@ -17,7 +17,7 @@ import org.hibernate.criterion.Restrictions;
  */
 public class CategoriaDAO extends GenericDao<Categoria>{
     //public class ClienteDAO extends GenericDao<Cliente> {
-    public void salvar(Categoria categoria) {
+    public void salvar(Categoria categoria)  throws Exception {
         save(categoria);
     }
  

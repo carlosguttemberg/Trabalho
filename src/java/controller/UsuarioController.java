@@ -19,9 +19,16 @@ import modelo.Usuario;
  * @author Lucas
  */
 public class UsuarioController {
-    public static void salvar(String nome, String login, String senha, String caminhofoto, String email){
-        Usuario a = new Usuario(nome, login, senha, caminhofoto, email);
-        new UsuarioDAO().salvar(a);
+    public static String salvar(String nome, String login, String senha, String caminhofoto, String email){
+        String retorno = "";
+        try {
+            Usuario a = new Usuario(nome, login, senha, caminhofoto, email);
+            new UsuarioDAO().salvar(a);
+        } catch (Exception e) {
+            retorno += "Login já existente.";
+            return retorno;
+        }
+        return retorno;
     }
     
     public static void editar(String id, String nome, String login, String senha, String caminhofoto, String email){

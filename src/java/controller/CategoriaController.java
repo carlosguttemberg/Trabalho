@@ -19,7 +19,11 @@ import modelo.Categoria;
 public class CategoriaController {
     public static void salvar(String nome){
         Categoria ca = new Categoria(nome);
-        new CategoriaDAO().salvar(ca);
+        try {
+            new CategoriaDAO().salvar(ca);
+        } catch (Exception ex) {
+            Logger.getLogger(CategoriaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void editar(String id, String nome){
