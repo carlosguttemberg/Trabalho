@@ -119,7 +119,7 @@
                              <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Foto de Perfil</label>
                                 <div class="col-md-9">
-                                    <input type="file" class="field" accept="image/jpeg; image/gif; image/bmp; image/png" name="arquivo" placeholder="">
+                                    <input type="file" class="field"  name="file1" placeholder="">
                                 </div>
                                 
                             </div>
