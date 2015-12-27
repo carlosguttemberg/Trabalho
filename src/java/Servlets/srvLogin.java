@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -59,9 +60,11 @@ public class srvLogin extends HttpServlet {
                 String senha = request.getParameter("txtsenha");
                 String status = "";
                 if (UsuarioController.validaUsuario(login, senha) == true) {
-
-                RequestDispatcher rd = request.getRequestDispatcher("srvLogin?cmd=inicial");
-                rd.forward(request, response);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("idUsuario", UsuarioController.retornaId(login));
+                    session.setAttribute("login", login);
+                    RequestDispatcher rd = request.getRequestDispatcher("srvLogin?cmd=inicial");
+                    rd.forward(request, response);
                 } else {
                     status = "Login ou senha incorretos";
                     RequestDispatcher rd = request.getRequestDispatcher("index.jsp?status=" + status);
