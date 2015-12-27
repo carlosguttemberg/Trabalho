@@ -1,5 +1,6 @@
 package Servlets;
 
+import controller.LivroController;
 import controller.UsuarioController;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -82,12 +83,17 @@ public class srvLogin extends HttpServlet {
                
                 String aux = Integer.toString(UsuarioController.retornaId(login));
                 foto = UsuarioController.retornaCampo(aux, "caminhofoto");
-                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto);
+                String listar = LivroController.listaLivroPorUsuario(aux);
+                HttpSession session = request.getSession();
+                session.setAttribute("imagem", foto);
+                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto + "&listar=" + listar);
                 rd.forward(request, response);
+                
             }else if(cmd.equals("altera")){
                 String imagem = request.getParameter("imagem");
                 HttpSession session = request.getSession();
                 String logon = session.getAttribute("login").toString();
+                session.setAttribute("imagem", imagem);
                 String email = session.getAttribute("email").toString();
                 String nome = session.getAttribute("nome").toString();
                 String senha = session.getAttribute("senha").toString();
