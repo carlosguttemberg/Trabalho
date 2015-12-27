@@ -29,7 +29,14 @@
                
             </div>
         </nav>
+        <%
         
+            String listarAutor = request.getParameter("listarAutor");        
+            String listarCategoria = request.getParameter("listarCategoria");        
+            String listarEditora = request.getParameter("listarEditora");        
+            String listarGenero = request.getParameter("listarGenero");        
+            
+        %>
         
 <!--
          <div class="container-fluid">    
@@ -83,7 +90,7 @@
                                 <div class="col-md-9">
                                    <select name="selautores" class="form-control" required>
                                         <option value=""></option>
-                                        <option value="">Machado de Assis</option>
+                                        <%=listarAutor%>
                                      </select>
                                     <a class="btn btn-primary btn-success" href="cadastroAutor.jsp">Novo Autor</a>
                                 </div>
@@ -94,7 +101,7 @@
                                 <div class="col-md-9">
                                    <select name="seleditoras" class="form-control" required>
                                         <option value=""></option>
-                                        <option value="">Rocco</option>
+                                        <%=listarEditora%>
                                      </select>
                                    <a class="btn btn-primary btn-success" href="cadastroEditora.jsp">Nova Editora</a>
                                 </div>
@@ -105,9 +112,20 @@
                                 <div class="col-md-9">
                                    <select name="selcategorias" class="form-control" required>
                                         <option value=""></option>
-                                        <option value="">Machado de Assis</option>
+                                        <%=listarCategoria%>
                                    </select>
                                     <a class="btn btn-primary btn-success" href="cadastroCategoria.jsp">Nova Categoria</a>
+                                </div>
+                            </div>
+                                   
+                            <div class="form-group">
+                                <label for="genero" class="col-md-3 control-label">Gênero</label>
+                                <div class="col-md-9">
+                                   <select name="selgeneros" class="form-control" required>
+                                        <option value=""></option>
+                                        <%=listarGenero%>
+                                   </select>
+                                    <a class="btn btn-primary btn-success" href="cadastroGenero.jsp">Novo Gênero</a>
                                 </div>
                             </div>
                             

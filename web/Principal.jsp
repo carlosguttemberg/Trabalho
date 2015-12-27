@@ -74,7 +74,7 @@
                 <p class="lead">Shop Name</p>
                 <div class="list-group">
                     <img class="slide-image" width="256px" weidth="256px" src=<%=foto%> alt="">
-                    <a href="cadastroLivro.jsp" class="list-group-item">Cadastro Livro</a>
+                    <a href="srvCadastroNovo?tipo=listar" class="list-group-item">Cadastro Livro</a>
                     <a href="#" class="list-group-item">Category 2</a>
                     <a href="#" class="list-group-item">Category 3</a>
                 </div>
