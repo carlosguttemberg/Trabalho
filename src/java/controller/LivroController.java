@@ -151,6 +151,7 @@ public class LivroController {
             "<div class=\"col-sm-4 col-lg-4 col-md-4\">\n" +
             "   <div class=\"thumbnail\">" + 
             "       <img src='"+livros.get(i).getCaminhofoto() + "' alt=''>" +
+                    /*
             "        <div class=\"caption\">  " +
             "           <h4 class=\"pull-right\">$64.99</h4>" + 
             "           <h4><a href=\"#\">"+ livros.get(i).getTitulo() + "</a></h4>"+
@@ -164,7 +165,7 @@ public class LivroController {
             "            <span class=\"glyphicon glyphicon-star\"></span>\n" +
             "            <span class=\"glyphicon glyphicon-star-empty\"></span>\n" +
             "            </p>\n" +
-            "            </div>\n" +
+            "            </div>\n" +*/
             "            </div>\n" +
             "        </div>"       ;
             
