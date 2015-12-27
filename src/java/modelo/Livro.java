@@ -195,6 +195,14 @@ public class Livro implements Serializable {
     public void setCaminhofoto(String caminhofoto) {
         this.caminhofoto = caminhofoto;
     }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
     
      
     

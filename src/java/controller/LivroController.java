@@ -178,4 +178,88 @@ public class LivroController {
         
         return retorno;
     }
+    
+    public static String listaLivroPorUsuarioFiltrado(String idUsuario, String filtro, String idFiltro){
+        String retorno = "";
+        int idfiltro = Integer.parseInt(idFiltro);
+        /*
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="http://placehold.it/320x150" alt="">
+                <div class="caption">
+                    <h4 class="pull-right">$64.99</h4>
+                    <h4><a href="#">Second Product</a>
+                    </h4>
+                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">12 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        */
+        UsuarioDAO usuariodao = new UsuarioDAO();
+        Usuario usuario = usuariodao.findById(Integer.parseInt(idUsuario));
+        //LivroDAO livrodao = new LivroDAO();
+        List<Livro> livros = usuario.getLivros();//livrodao.listaLivrosPorIdUsuario(Integer.parseInt(idUsuario));
+        
+        if (filtro.equals("categoria")){
+            for(int i = 0; i <livros.size(); i++){
+                if(livros.get(i).getCategoria().getId() != idfiltro){
+                    livros.remove(i);
+                }
+            }
+        } else if(filtro.equals("genero")){
+            for(int i = 0; i <livros.size(); i++){
+                if(livros.get(i).getGenero().getId() != idfiltro){
+                    livros.remove(i);
+                }
+            }
+        } else if (filtro.equals("status")){
+            for(int i = 0; i <livros.size(); i++){
+                if(livros.get(i).getStatus().getId() != idfiltro){
+                    livros.remove(i);
+                }
+            }  
+        } else if(filtro.equals("statusleitura")){
+            for(int i = 0; i <livros.size(); i++){
+                if(livros.get(i).getStatusleitura().getId() != idfiltro){
+                    livros.remove(i);
+                }
+            }
+        }
+        for(int i = 0; i <livros.size(); i++){
+            retorno += "" +
+            "<div class=\"col-sm-4 col-lg-4 col-md-4\">\n" +
+            "   <div class=\"thumbnail\">" + 
+            "       <img src='"+livros.get(i).getCaminhofoto() + "' alt=''>" +
+                    /*
+            "        <div class=\"caption\">  " +
+            "           <h4 class=\"pull-right\">$64.99</h4>" + 
+            "           <h4><a href=\"#\">"+ livros.get(i).getTitulo() + "</a></h4>"+
+            "        </div>   "+
+            "        <div class=\"ratings\">\n" +
+            "            <p class=\"pull-right\">12 reviews</p>\n" +
+            "            <p>\n" +
+            "            <span class=\"glyphicon glyphicon-star\"></span>\n" +
+            "            <span class=\"glyphicon glyphicon-star\"></span>\n" +
+            "            <span class=\"glyphicon glyphicon-star\"></span>\n" +
+            "            <span class=\"glyphicon glyphicon-star\"></span>\n" +
+            "            <span class=\"glyphicon glyphicon-star-empty\"></span>\n" +
+            "            </p>\n" +
+            "            </div>\n" +*/
+            "            </div>\n" +
+            "        </div>"       ;
+            
+        }
+        
+        return retorno;
+    }
 }
