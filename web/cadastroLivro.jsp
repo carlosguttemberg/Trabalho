@@ -35,6 +35,8 @@
             String listarCategoria = request.getParameter("listarCategoria");        
             String listarEditora = request.getParameter("listarEditora");        
             String listarGenero = request.getParameter("listarGenero");        
+            String listarStatus = request.getParameter("listarStatus");        
+            String listarStatusLeitura = request.getParameter("listarStatusLeitura");        
             
         %>
         
@@ -162,7 +164,7 @@
                                 <div class="col-md-9">
                                    <select name="selStatusLivro" class="form-control" required>
                                         <option value=""></option>
-                                        <option value="">Tenho</option>
+                                         <%=listarStatus%>
                                    </select>
                                 </div>
                             </div>
@@ -172,7 +174,7 @@
                                 <div class="col-md-9">
                                    <select name="selStatusLeitura" class="form-control" required>
                                         <option value=""></option>
-                                        <option value="">Lendo</option>
+                                        <%=listarStatusLeitura%>
                                    </select>
                                 </div>
                             </div>

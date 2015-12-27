@@ -50,11 +50,15 @@ public class Livro implements Serializable {
     @JoinColumn(name = "idCategoria")
     private Categoria categoria;
     @OneToOne
+    @JoinColumn(name = "idGenero")
+    private Genero genero;
+    @OneToOne
     @JoinColumn(name = "idStatus")
     private Status status;
     @OneToOne
     @JoinColumn(name = "idStatusLeitura")
     private StatusLeitura statusleitura;
+    
     /*@ManyToMany
     @JoinColumn(name = "idUsuario")
     private List<Usuario> usuarios;*/
@@ -62,7 +66,7 @@ public class Livro implements Serializable {
     public Livro() {
     }
 
-    public Livro(int id, String titulo, int ano, int volume, int paginas, String edicao, String caminhofoto, Autor autor, Editora editora, Categoria categoria, Status status, StatusLeitura statusleitura) {
+    public Livro(int id, String titulo, int ano, int volume, int paginas, String edicao, String caminhofoto, Autor autor, Editora editora, Categoria categoria, Genero genero, Status status, StatusLeitura statusleitura) {
         this.id = id;
         this.titulo = titulo;
         this.ano = ano;
@@ -73,11 +77,12 @@ public class Livro implements Serializable {
         this.autor = autor;
         this.editora = editora;
         this.categoria = categoria;
+        this.genero = genero;
         this.status = status;
         this.statusleitura = statusleitura;
     }
 
-    public Livro(String titulo, int ano, int volume, int paginas, String edicao, String caminhofoto, Autor autor, Editora editora, Categoria categoria, Status status, StatusLeitura statusleitura) {
+    public Livro(String titulo, int ano, int volume, int paginas, String edicao, String caminhofoto, Autor autor, Editora editora, Categoria categoria, Genero genero, Status status, StatusLeitura statusleitura) {
         this.titulo = titulo;
         this.ano = ano;
         this.volume = volume;
@@ -87,9 +92,12 @@ public class Livro implements Serializable {
         this.autor = autor;
         this.editora = editora;
         this.categoria = categoria;
+        this.genero = genero;
         this.status = status;
         this.statusleitura = statusleitura;
     }
+
+    
 
     
     public int getId() {
