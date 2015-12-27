@@ -8,6 +8,7 @@ package Servlets;
 import controller.AutorController;
 import controller.CategoriaController;
 import controller.EditoraController;
+import controller.GeneroController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -42,22 +43,55 @@ public class srvCadastroNovo extends HttpServlet {
             
                 String nome = request.getParameter("nome");
                 AutorController.salvar(nome);
-                RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp"); 
+                String listarAutor = AutorController.retornaSelect();
+                String listarCategoria = CategoriaController.retornaSelect();
+                String listarEditora = EditoraController.retornaSelect();
+                String listarGenero = GeneroController.retornaSelect();
+                RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp?listarAutor="+listarAutor+"&listarCategoria="+listarCategoria+"&listarEditora="+listarEditora+"&listarGenero"+listarGenero);
                 rd.forward(request, response);
                 
             }else if(tipo.equals("categoria")){
                 
                 String nome = request.getParameter("nome");
                 CategoriaController.salvar(nome);
-                RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp"); 
+                String listarAutor = AutorController.retornaSelect();
+                String listarCategoria = CategoriaController.retornaSelect();
+                String listarEditora = EditoraController.retornaSelect();
+                String listarGenero = GeneroController.retornaSelect();
+                RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp?listarAutor="+listarAutor+"&listarCategoria="+listarCategoria+"&listarEditora="+listarEditora+"&listarGenero"+listarGenero); 
                 rd.forward(request, response);
                 
             }else if(tipo.equals("editora")){
             
                 String nome = request.getParameter("nome");
                 EditoraController.salvar(nome);
-                RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp"); 
+                String listarAutor = AutorController.retornaSelect();
+                String listarCategoria = CategoriaController.retornaSelect();
+                String listarEditora = EditoraController.retornaSelect();
+                String listarGenero = GeneroController.retornaSelect();
+                RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp?listarAutor="+listarAutor+"&listarCategoria="+listarCategoria+"&listarEditora="+listarEditora+"&listarGenero"+listarGenero); 
                 rd.forward(request, response);
+                
+            }else if(tipo.equals("genero")){
+            
+                String nome = request.getParameter("nome");
+                GeneroController.salvar(nome);
+                String listarAutor = AutorController.retornaSelect();
+                String listarCategoria = CategoriaController.retornaSelect();
+                String listarEditora = EditoraController.retornaSelect();
+                String listarGenero = GeneroController.retornaSelect();
+                RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp?listarAutor="+listarAutor+"&listarCategoria="+listarCategoria+"&listarEditora="+listarEditora+"&listarGenero"+listarGenero); 
+                rd.forward(request, response);
+                
+            }else if(tipo.equals("listar")){
+            
+                String listarAutor = AutorController.retornaSelect();
+                String listarCategoria = CategoriaController.retornaSelect();
+                String listarEditora = EditoraController.retornaSelect();
+                String listarGenero = GeneroController.retornaSelect();
+                RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp?listarAutor="+listarAutor+"&listarCategoria="+listarCategoria+"&listarEditora="+listarEditora+"&listarGenero"+listarGenero); 
+                rd.forward(request, response);
+                
             }
         }
     }

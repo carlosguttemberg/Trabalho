@@ -42,15 +42,15 @@ public class srvLogin extends HttpServlet {
                 String senha = request.getParameter("senha");
                 login = request.getParameter("login");
                 String email = request.getParameter("email");
-                resp += UsuarioController.salvar(nome, login, senha, caminho, email);
-                if (resp.equals("")){
+                resp = UsuarioController.salvar(nome, login, senha, caminho, email);
+                if (resp.equals(null)){
                     
                     RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
                     rd.forward(request, response);
                 }else{
                     
-                    resp = "Login Existente";
-                    RequestDispatcher rd = request.getRequestDispatcher("cadastro.jsp?resposta=" + resp);
+                    String aux = "Login Existente";
+                    RequestDispatcher rd = request.getRequestDispatcher("cadastro.jsp?resposta=" + aux);
                     rd.forward(request, response);
                 }
                 

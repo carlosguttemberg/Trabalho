@@ -4,7 +4,7 @@
     Author     : Carlos
 --%>
 <%
-    String resposta= request.getParameter("resp");
+    String resposta= request.getParameter("resposta");
     
     if (resposta == null) {
             resposta = "";
@@ -109,9 +109,10 @@
                                 <div class="col-md-9">
                                     <input type="text" required class="form-control" name="caminho" placeholder="">
                                 </div>
+                                <label><font color ="FF0000"><%=resposta%></font></label>
                             </div>
                             
-                            <label><font color ="FF0000"><%=resposta%></font></label>
+                            
                             
                             <!--
                              <div class="form-group">
