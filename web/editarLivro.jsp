@@ -32,14 +32,16 @@
         <%
         
             String titulo = request.getParameter("titulo");
+            String ano = request.getParameter("ano");
+            String volume = request.getParameter("volume");
+            String paginas = request.getParameter("paginas");
+            String edicao = request.getParameter("edicao");
             String listarAutor = request.getParameter("listarAutor");        
             String listarCategoria = request.getParameter("listarCategoria");        
             String listarEditora = request.getParameter("listarEditora");        
             String listarGenero = request.getParameter("listarGenero");        
             String listarStatus = request.getParameter("listarStatus");        
-            String listarStatusLeitura = request.getParameter("listarStatusLeitura");        
-            String idLivro = request.getParameter("idLivro");        
-            String capaLivro = request.getParameter("capaLivro");        
+            String listarStatusLeitura = request.getParameter("listarStatusLeitura");              
             
         %>
         
@@ -80,7 +82,7 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form id="loginform" class="form-horizontal" role="form" action="srvCadastroLivro">
+                        <form id="loginform" class="form-horizontal" role="form" action="srvEdicaoLivro">
 
                             <div class="form-group">
                                 <label for="titulo" class="col-md-3 control-label">Título</label>
@@ -137,28 +139,28 @@
                             <div class="form-group">
                                 <label for="ano" class="col-md-3 control-label">Ano</label>
                                 <div class="col-md-9">
-                                    <input type="number" class="form-control" name="ano" placeholder="" required>
+                                    <input type="number" class="form-control" name="ano" value="<%=ano%>" placeholder="" required>
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="paginas" class="col-md-3 control-label">Páginas</label>
                                 <div class="col-md-9">
-                                    <input type="number" class="form-control" name="paginas" placeholder="" required>
+                                    <input type="number" class="form-control" name="paginas" value="<%=paginas%>" placeholder="" required>
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="edicao" class="col-md-3 control-label">Edição</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="edicao" placeholder="" required>
+                                    <input type="text" class="form-control" name="edicao" value="<%=edicao%>" placeholder="" required>
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="volume" class="col-md-3 control-label">Volume</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="volume" placeholder="" required>
+                                    <input type="text" class="form-control" name="volume" value="<%=volume%>" placeholder="" required>
                                 </div>
                             </div>
                             
@@ -192,8 +194,6 @@
                                      <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
                                     <div style="padding-top:15px" class="panel-body" >
                                     <input type="hidden" value="atualizar" name="opcao">
-                                    <input type="hidden" value="<%=idLivro%>" name="idLivro">
-                                    <input type="hidden" value="<%=capaLivro%>" name="capaLivro">
                                     <button class="btn btn-lg btn-primary btn-success" type="submit">Atualizar</button>
                                     <button class="btn btn-lg btn-primary btn-success" type="reset">Limpar</button>
                                     <a class="btn btn-lg btn-primary btn-success" href="index.jsp">Cancelar</a>

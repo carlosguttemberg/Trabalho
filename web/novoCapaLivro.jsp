@@ -17,7 +17,7 @@
     <head>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro do Livro</title>
+        <title>Edição do Livro</title>
     </head>
     
     
@@ -65,7 +65,7 @@
             <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
                 <div class="panel panel-success" >
                     <div class="panel-heading">
-                        <div class="panel-title"><b>Cadastre a capa do Livro</b></div>
+                        <div class="panel-title"><b>Edite a capa do Livro</b></div>
                         <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
                     </div>     
 
@@ -73,10 +73,10 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form action="salvarCapaLivro.jsp" method="post" enctype="multipart/form-data" > 
+                        <form action="salvarNovaCapaLivro.jsp" method="post" enctype="multipart/form-data" > 
 
                             <div class="form-group">
-                                <label for="firstname" class="col-md-3 control-label">Selecione o arquivo </label>
+                                <label for="firstname" class="col-md-3 control-label">Selecione o arquivo com a nova capa</label>
                                 <div class="col-md-9">
                                     <input type="file" name="file1"> 
                                     
@@ -92,7 +92,7 @@
                                         
                                     
                                     <button class="btn btn-lg btn-primary btn-success" type="submit">Upload</button>
-                                    
+                                    <a class="btn btn-lg btn-primary btn-success" href="srvEdicaoLivro?opcao=salvar">Manter capa atual</a>
                                     <a class="btn btn-lg btn-primary btn-success" href="Principal.jsp">Cancelar</a>
                                     <!--<a id="btn-fblogin" href="#" class="btn btn-primary">Login comcebook</a>-->
                                     </div>

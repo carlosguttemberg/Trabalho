@@ -57,8 +57,8 @@ public class srvEdicaoLivro extends HttpServlet {
                 String capaLivro = LivroController.retornaCampo(idLivro, "caminhofoto");
                 
                
-                //session.setAttribute("idLivroEditar", idLivro);
-                //session.setAttribute("capaLivro", capaLivro);
+                session.setAttribute("idLivroEditar", idLivro);
+                session.setAttribute("capaLivro", capaLivro);
                 
                 
                 String titulo = LivroController.retornaCampo(idLivro, "titulo");
@@ -75,17 +75,13 @@ public class srvEdicaoLivro extends HttpServlet {
                 
                 RequestDispatcher rd = request.getRequestDispatcher("editarLivro.jsp?titulo="+titulo+"&listarAutor="+listarAutor+
                         "&listarEditora="+listarEditora+"&listarCategoria="+listarCategoria+"&listarGenero="+listarGenero+"&ano="+ano+
-                        "&paginas="+paginas+"&edicao="+edicao+"&volume="+volume+"&listarStatus="+listarStatus+"&listarStatusLeitura="+listarStatusLeitura+
-                        "&idLivro="+idLivro+"&capaLivro="+capaLivro);
+                        "&paginas="+paginas+"&edicao="+edicao+"&volume="+volume+"&listarStatus="+listarStatus+"&listarStatusLeitura="+listarStatusLeitura);
                 rd.forward(request, response);                
                 
             }else if(opcao.equals("atualizar")){
             
-                //String id = session.getAttribute("idLivroEditar").toString();
-                //String caminhofoto = session.getAttribute("capaLivro").toString();
-                String id = request.getParameter("idLivro");
-                String caminhofoto = request.getParameter("capaLivro");
                 
+                               
                 String titulo = request.getParameter("titulo");
                 String idAutor = request.getParameter("selautores");
                 String idEditora = request.getParameter("seleditoras");
@@ -98,10 +94,46 @@ public class srvEdicaoLivro extends HttpServlet {
                 String idStatus = request.getParameter("selStatusLivro");
                 String idStatusLeitura = request.getParameter("selStatusLeitura");
                 
-                //editar(String id, String titulo, String ano, String volume, String paginas, String edicao, String caminhofoto, String idAutor, String idEditora, String idCategoria, String idGenero, String idStatus, String idStatusLeitura){
+                session.setAttribute("titulo", titulo);
+                session.setAttribute("idAutor", idAutor);
+                session.setAttribute("idEditora", idEditora);
+                session.setAttribute("idCategoria", idCategoria);
+                session.setAttribute("idGenero", idGenero);
+                session.setAttribute("ano", ano);
+                session.setAttribute("paginas", paginas);
+                session.setAttribute("edicao", edicao);
+                session.setAttribute("volume", volume);
+                session.setAttribute("idStatus", idStatus);
+                session.setAttribute("idStatusLeitura", idStatusLeitura);
+                
+                //String id = session.getAttribute("idLivroEditar").toString();
+                //String caminhofoto = session.getAttribute("capaLivro").toString();
+                
+                
+                //LivroController.editar(id, titulo, ano, volume, paginas, edicao, caminhofoto, idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura);
+                
+                RequestDispatcher rd = request.getRequestDispatcher("novoCapaLivro.jsp");
+                rd.forward(request, response);
+            
+            }else if(opcao.equals("salvar")){
+                
+                String id = session.getAttribute("idLivroEditar").toString();
+                String caminhofoto = session.getAttribute("capaLivro").toString();            
+                String titulo = session.getAttribute("titulo").toString(); 
+                String idAutor = session.getAttribute("idAutor").toString(); 
+                String idEditora = session.getAttribute("idEditora").toString(); 
+                String idCategoria = session.getAttribute("idCategoria").toString(); 
+                String idGenero =session.getAttribute("idGenero").toString(); 
+                String ano = session.getAttribute("ano").toString(); 
+                String paginas = session.getAttribute("paginas").toString(); 
+                String edicao = session.getAttribute("edicao").toString(); 
+                String volume = session.getAttribute("volume").toString(); 
+                String idStatus = session.getAttribute("idStatus").toString(); 
+                String idStatusLeitura = session.getAttribute("idStatusLeitura").toString(); 
+                
                 LivroController.editar(id, titulo, ano, volume, paginas, edicao, caminhofoto, idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura);
                 
-                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
+                 RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
                 rd.forward(request, response);
             }
             
