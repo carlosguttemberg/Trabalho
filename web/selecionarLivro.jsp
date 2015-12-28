@@ -72,7 +72,7 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form name="selecionarLivro" class="form-horizontal" action="srvEditarLivro?opcao=selecionar" method="POST">
+                        <form name="selecionarLivro" class="form-horizontal" action="srvEdicaoLivro?opcao=selecionar" method="POST">
 
                             <div class="form-group">
                               <label for="colecaoLivros" class="col-md-3 control-label">Coleção de Livros</label>
@@ -96,8 +96,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
                        </div>
+                      </form>
+
                             
                                   
 
