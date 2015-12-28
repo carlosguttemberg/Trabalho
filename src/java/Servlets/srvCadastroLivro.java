@@ -54,7 +54,7 @@ public class srvCadastroLivro extends HttpServlet {
 
                 LivroController.salvar(titulo, ano, volume, paginas, edicao, "", idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura, idUsuario);
                 
-                String idLivro = String.valueOf(LivroController.retornaId(titulo));
+                String idLivro = String.valueOf(LivroController.retornaLivrosId(titulo,volume, edicao));
 
                 HttpSession session = request.getSession();
                 session.setAttribute("idLivro", idLivro);
