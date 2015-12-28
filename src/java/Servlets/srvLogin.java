@@ -128,7 +128,7 @@ public class srvLogin extends HttpServlet {
                 String id = session.getAttribute("idUsuario").toString();
                 String foto = UsuarioController.retornaCampo(id, "caminhofoto");
                 UsuarioController.editar(id, nome, logon, senha, foto, email);
-             
+                session.setAttribute("nome", nome);
                 RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto);
                 rd.forward(request, response);
             }
