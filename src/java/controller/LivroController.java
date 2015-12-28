@@ -42,16 +42,17 @@ public class LivroController {
             StatusLeituraDAO statusleituradao = new StatusLeituraDAO();
             StatusLeitura statusleitura = statusleituradao.findById(Integer.parseInt(idStatusLeitura));
             
-            
-            /*List<Livro> livros = retornaLivros(titulo);
+            /*
+            List<Livro> livros = retornaLivros(titulo);
+            System.out.println(livros.get(0).getTitulo());
             for(int i = 0; i< livros.size(); i++){
-                if(livros.get(i).getTitulo().equals(titulo) && livros.get(i).getEdicao().equals(edicao)){
+                if(livros.get(i).getTitulo().equals(titulo) && livros.get(i).getEdicao().equals(edicao) && livros.get(i).getVolume() == Integer.parseInt(volume)){
                     return "Livro já existente.";
                 }
             }*/
             Livro l = new Livro(titulo, Integer.parseInt(ano), Integer.parseInt(volume), Integer.parseInt(paginas), edicao, caminhofoto, autor, editora, categoria, genero, status, statusleitura);
             new LivroDAO().salvar(l);
-            UsuarioController.vinculaLivro(LivroController.retornaId(titulo)+"", new UsuarioDAO().findById(Integer.parseInt(idUsuario)).getId()+"");
+            UsuarioController.vinculaLivro(LivroController.retornaLivrosId(titulo, volume, edicao)+"", new UsuarioDAO().findById(Integer.parseInt(idUsuario)).getId()+"");
           } catch (Exception e) {
                 retorno += "Livro já existente.";
                 return retorno;
@@ -144,6 +145,17 @@ public class LivroController {
         List<Livro> livrosencontrados = dao.listaLivrosPorNome(titulo);
         return livrosencontrados;
     }
+    
+     public static int retornaLivrosId(String titulo, String volume, String edicao)  {
+        LivroDAO dao = new LivroDAO();
+        List<Livro> livrosencontrados = dao.listaLivrosPorNome(titulo);
+         for(int i = 0; i< livrosencontrados.size(); i++){
+                if(livrosencontrados.get(i).getTitulo().equals(titulo) && livrosencontrados.get(i).getEdicao().equals(edicao) && livrosencontrados.get(i).getVolume() == Integer.parseInt(volume)){
+                    return livrosencontrados.get(i).getId();
+                }
+            }
+        return 0;
+    }
       
     public static String listaLivroPorUsuario(String idUsuario){
         String retorno = "";
@@ -181,11 +193,12 @@ public class LivroController {
             "<div class=\"col-sm-4 col-lg-4 col-md-4\">\n" +
             "   <div class=\"thumbnail\">" + 
             "       <img width=256px height=256px src='"+livros.get(i).getCaminhofoto() + "' alt=''>" +
-                    /*
+                    
             "        <div class=\"caption\">  " +
-            "           <h4 class=\"pull-right\">$64.99</h4>" + 
-            "           <h4><a href=\"#\">"+ livros.get(i).getTitulo() + "</a></h4>"+
-            "        </div>   "+
+       //     "           <h4 class=\"pull-right\">$64.99</h4>" + 
+            "           <h4>Gênero: "+ livros.get(i).getGenero().getNome() + "</h4>"+
+            "           <h4>Status: "+ livros.get(i).getStatus().getNome() + "</h4>"+
+            "        </div>   "+/*
             "        <div class=\"ratings\">\n" +
             "            <p class=\"pull-right\">12 reviews</p>\n" +
             "            <p>\n" +
@@ -268,6 +281,8 @@ public class LivroController {
             "<div class=\"col-sm-4 col-lg-4 col-md-4\">\n" +
             "   <div class=\"thumbnail\">" + 
             "       <img src='"+livrosfiltrados.get(i).getCaminhofoto() + "' alt=''>" +
+                    "           <h4>Gênero: "+ livros.get(i).getGenero().getNome() + "</h4>"+
+            "           <h4>Status: "+ livros.get(i).getStatus().getNome() + "</h4>"+
                     /*
             "        <div class=\"caption\">  " +
             "           <h4 class=\"pull-right\">$64.99</h4>" + 
