@@ -28,7 +28,7 @@ public class Livro implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO) 
     @Column(name = "id")
     private int id;
-    @Column(name = "titulo", unique = true)
+    @Column(name = "titulo")//, unique = true)
     private String titulo;
     @Column(name = "ano")
     private int ano;

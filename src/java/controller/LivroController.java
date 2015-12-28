@@ -10,6 +10,7 @@ import java.lang.reflect.Field;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import dao.*;
+import java.util.ArrayList;
 import java.util.List;
 import modelo.Autor;
 import modelo.Categoria;
@@ -40,8 +41,14 @@ public class LivroController {
             Status status = statusdao.findById(Integer.parseInt(idStatus));
             StatusLeituraDAO statusleituradao = new StatusLeituraDAO();
             StatusLeitura statusleitura = statusleituradao.findById(Integer.parseInt(idStatusLeitura));
-
-
+            
+            
+            /*List<Livro> livros = retornaLivros(titulo);
+            for(int i = 0; i< livros.size(); i++){
+                if(livros.get(i).getTitulo().equals(titulo) && livros.get(i).getEdicao().equals(edicao)){
+                    return "Livro já existente.";
+                }
+            }*/
             Livro l = new Livro(titulo, Integer.parseInt(ano), Integer.parseInt(volume), Integer.parseInt(paginas), edicao, caminhofoto, autor, editora, categoria, genero, status, statusleitura);
             new LivroDAO().salvar(l);
             UsuarioController.vinculaLivro(LivroController.retornaId(titulo)+"", new UsuarioDAO().findById(Integer.parseInt(idUsuario)).getId()+"");
@@ -117,8 +124,14 @@ public class LivroController {
      
       public static int retornaId(String titulo){
         LivroDAO dao = new LivroDAO();
-         Livro u = dao.findByCollumPalavra("titulo", titulo   );
+        Livro u = dao.findByCollumPalavra("titulo", titulo   );
          return u.getId();
+    }
+      
+    public static List<Livro> retornaLivros(String titulo)  {
+        LivroDAO dao = new LivroDAO();
+        List<Livro> livrosencontrados = dao.listaLivrosPorNome(titulo);
+        return livrosencontrados;
     }
       
     public static String listaLivroPorUsuario(String idUsuario){
@@ -207,9 +220,12 @@ public class LivroController {
         */
         UsuarioDAO usuariodao = new UsuarioDAO();
         Usuario usuario = usuariodao.findById(Integer.parseInt(idUsuario));
+        System.out.println(usuario.getNome());
         //LivroDAO livrodao = new LivroDAO();
         List<Livro> livros = usuario.getLivros();//livrodao.listaLivrosPorIdUsuario(Integer.parseInt(idUsuario));
-        List<Livro> livrosfiltrados = null;
+        System.out.println(livros.get(0).getTitulo());
+        List<Livro> livrosfiltrados = new ArrayList<Livro>();
+        
         if (filtro.equals("categoria")){
             for(int i = 0; i <livros.size(); i++){
                 if(livros.get(i).getCategoria().getId() != idfiltro){
@@ -269,7 +285,7 @@ public class LivroController {
         UsuarioDAO usuariodao = new UsuarioDAO();
         Usuario usuario = usuariodao.findById(Integer.parseInt(idUsuario));
         List<Livro> livros = usuario.getLivros();
-        List<Livro> livrosfiltrados = null;
+        List<Livro> livrosfiltrados = new ArrayList<Livro>();
         if (filtro.equals("categoria")){
             for(int i = 0; i <livros.size(); i++){
                 if(livros.get(i).getCategoria().getId() != idfiltro){
