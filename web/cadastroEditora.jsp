@@ -86,7 +86,7 @@
                                     
                                     <button class="btn btn-lg btn-primary btn-success" type="submit">Cadastrar</button>
                                     <button class="btn btn-lg btn-primary btn-success" type="reset">Limpar</button>
-                                    <a class="btn btn-lg btn-primary btn-success" href="cadastroLivro.jsp">Cancelar</a>
+                                    <a class="btn btn-lg btn-primary btn-success" href="srvCadastroNovo?tipo=listar">Cancelar</a>
                                     <!--<a id="btn-fblogin" href="#" class="btn btn-primary">Login comcebook</a>-->
                                     </div>
                                 </div>
