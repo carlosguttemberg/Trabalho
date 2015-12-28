@@ -1,16 +1,23 @@
 <%-- 
-    Document   : cadastroCategoria
-    Created on : 24/12/2015, 12:25:35
+    Document   : capaLivro
+    Created on : 27/12/2015, 14:50:45
     Author     : Usuario
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html> 
+    <head> 
+        <title>Capa do Livro</title> 
+    </head> 
+    <body> 
+        
+        
+
     <head>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Categoria</title>
+        <title>Cadastro do Usuário</title>
     </head>
     
     
@@ -54,13 +61,11 @@
     -->
     
     
-    
-    
       <div class="container-fluid">    
             <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
                 <div class="panel panel-success" >
                     <div class="panel-heading">
-                        <div class="panel-title"><b>Cadastre uma categoria</b></div>
+                        <div class="panel-title"><b>Cadastre a capa do Livro</b></div>
                         <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
                     </div>     
 
@@ -68,25 +73,27 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form name="cadastroCategoria" class="form-horizontal" action="srvCadastroNovo?tipo=categoria" method="POST">
+                        <form action="salvarCapaLivro.jsp" method="post" enctype="multipart/form-data" > 
 
                             <div class="form-group">
-                                <label for="nome" class="col-md-3 control-label">Nome</label>
+                                <label for="firstname" class="col-md-3 control-label">Selecione o arquivo </label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="nome" placeholder="" required>
+                                    <input type="file" name="file1"> 
+                                    
                                 </div>
-                            </div>                         
-                            
+                            </div>
+                           
                             <div style="margin-top:10px" class="form-group">
                                 <!-- Button -->
 
                                 <div class="col-sm-12 controls">
-                                    <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
+                                     <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
                                     <div style="padding-top:15px" class="panel-body" >
+                                        
                                     
-                                    <button class="btn btn-lg btn-primary btn-success" type="submit">Cadastrar</button>
-                                    <button class="btn btn-lg btn-primary btn-success" type="reset">Limpar</button>
-                                    <a class="btn btn-lg btn-primary btn-success" href="cadastroLivro.jsp">Cancelar</a>
+                                    <button class="btn btn-lg btn-primary btn-success" type="submit">Upload</button>
+                                    
+                                    <a class="btn btn-lg btn-primary btn-success" href="Principal.jsp">Cancelar</a>
                                     <!--<a id="btn-fblogin" href="#" class="btn btn-primary">Login comcebook</a>-->
                                     </div>
                                 </div>
@@ -94,10 +101,6 @@
                         </form>
                        </div>
                             
-                                  
-
-
-
                     </div>                     
                 </div>
             </div>
@@ -106,6 +109,5 @@
         
         <script src="bootstrap/js/jquery-1.11.3.js"></script>    
         <script src="bootstrap/js/bootstrap.min.js"></script>
-    </body>
-</html>
-
+    </body> 
+</html> 
