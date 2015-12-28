@@ -40,4 +40,14 @@ public class LivroDAO extends GenericDao<Livro>{
         return session.createCriteria(this.getPersistentClass()).add(Restrictions.eq("idUsuario", idUsuario)).list();
         
     }
+     public List<Livro> findByFiltros(List<String> filtros, List<String> idFiltros) {
+        Session session = (Session) getEntityManager().getDelegate();
+        List<Livro> livros = null;
+        for(int i = 0; i<filtros.size(); i++){
+            livros.addAll(session.createCriteria(this.getPersistentClass())
+            .add(Restrictions.eq(filtros.get(i), idFiltros.get(i))).list());
+        }
+        //livros.r
+        return livros;
+    }
 }
