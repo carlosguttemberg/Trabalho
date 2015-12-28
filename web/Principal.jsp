@@ -2,6 +2,7 @@
        String imagem = session.getAttribute("imagem").toString();
        
        String listar = request.getParameter("listar");
+       String lendo = request.getParameter("lendo");
        
        if(listar == null){
            listar ="";
@@ -85,7 +86,7 @@
                     <img class="slide-image" width="256px" weidth="256px" src=<%=imagem%> alt="">
                     <a href="srvCadastroNovo?tipo=listar" class="list-group-item">Cadastro Livro</a>
                     <a href="perfil.jsp" class="list-group-item">Foto Perfil</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                    <a href="editarUsuario.jsp" class="list-group-item">Alterar Dados</a>
                 </div>
             </div>
 
@@ -135,7 +136,9 @@
                         <div class="thumbnail">                            
                             <div class="caption">                               
                                 <h4><label>Lendo</label>
-                                </h4>                               
+                                </h4>     
+                                <h4><label><%=lendo%></label>
+                                </h4> 
                             </div>                           
                         </div>
                     </div>
