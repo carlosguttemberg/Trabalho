@@ -29,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="Principal.jsp">Perfil</a>
+                <a class="navbar-brand" href="Principal.jsp">Principal</a>
             </div>
                
             </div>
@@ -194,6 +194,7 @@
                                      <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
                                     <div style="padding-top:15px" class="panel-body" >
                                     <input type="hidden" value="<%=idUsuario%>" name="idUsuario">
+                                    <input type="hidden" value="incluir" name="opcao">
                                     <button class="btn btn-lg btn-primary btn-success" type="submit">Cadastrar</button>
                                     <button class="btn btn-lg btn-primary btn-success" type="reset">Limpar</button>
                                     <a class="btn btn-lg btn-primary btn-success" href="index.jsp">Cancelar</a>

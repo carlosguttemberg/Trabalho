@@ -24,7 +24,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="Principal.jsp">Perfil</a>
+                <a class="navbar-brand" href="Principal.jsp">Principal</a>
             </div>
                
             </div>
