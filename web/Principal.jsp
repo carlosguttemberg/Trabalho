@@ -140,7 +140,7 @@
                                 <h4><label>Lendo</label>
                                 </h4>     
                                 <h4><label><%=lendo%></label>
-                                </h4>        
+                                </h4>    
                             </div>                           
                         </div>
                     </div>
