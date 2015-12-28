@@ -32,7 +32,9 @@ public class UsuarioController {
     }
     
     public static void editar(String id, String nome, String login, String senha, String caminhofoto, String email){
+        Usuario usuarioantigo = new UsuarioDAO().findById(Integer.parseInt(id));
         Usuario a = new Usuario(Integer.parseInt(id), nome, login, senha, caminhofoto, email);
+        a.setLivros(usuarioantigo.getLivros());
         new UsuarioDAO().alterar(a);
     }
     public static void excluir(String id){
