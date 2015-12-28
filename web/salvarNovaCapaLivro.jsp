@@ -22,7 +22,7 @@
         
         String imagem = idLivro + ".jpeg";
 
-        File file = new File(getServletContext().getRealPath(getServletContext().getContextPath()) +  idLivro + ".jpeg");
+        File file = new File(getServletContext().getRealPath(getServletContext().getContextPath()) + "novo" + idLivro + ".jpeg");
         //C:/Users/Carlos/Documents/NetBeansProjects/TrabalhoP1/build/web/
         //File file2 = new File();
         FileOutputStream fos = new FileOutputStream(file);
