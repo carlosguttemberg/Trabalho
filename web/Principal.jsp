@@ -3,6 +3,10 @@
        
        String listar = session.getAttribute("listar").toString();
        String lendo = session.getAttribute("lendo").toString();
+       String lido = session.getAttribute("lido").toString();
+       String queroler = session.getAttribute("queroler").toString();
+       String desisti = session.getAttribute("desisti").toString();
+       String relendo = session.getAttribute("relendo").toString();
        
        
        if(listar == null){
@@ -150,7 +154,9 @@
                         <div class="thumbnail">                            
                             <div class="caption">                               
                                 <h4><label>Lido</label>
-                                </h4>                               
+                                </h4>                  
+                                <h4><label><%=lido%></label>
+                                </h4>
                             </div>                           
                         </div>
             </div>
@@ -160,7 +166,9 @@
                         <div class="thumbnail">                            
                             <div class="caption">                               
                                 <h4><label>Quero Ler</label>
-                                </h4>                               
+                                </h4>
+                                <h4><label><%=queroler%></label>
+                                </h4>
                             </div>                           
                         </div>
             </div>
@@ -169,7 +177,9 @@
                         <div class="thumbnail">                            
                             <div class="caption">                               
                                 <h4><label>Relendo</label>
-                                </h4>                               
+                                </h4>
+                                <h4><label><%=relendo%></label>
+                                </h4>
                             </div>                           
                         </div>
             </div>
@@ -179,7 +189,9 @@
                         <div class="thumbnail">                            
                             <div class="caption">                               
                                 <h4><label>Desisti</label>
-                                </h4>                               
+                                </h4>  
+                                <h4><label><%=desisti%></label>
+                                </h4>
                             </div>                           
                         </div>
             </div>
