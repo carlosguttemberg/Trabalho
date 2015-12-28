@@ -17,7 +17,7 @@
     <head>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro do Usuário</title>
+        <title>Foto de Perfil</title>
     </head>
     
     
@@ -65,7 +65,7 @@
             <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
                 <div class="panel panel-success" >
                     <div class="panel-heading">
-                        <div class="panel-title"><b>Cadastre-se</b></div>
+                        <div class="panel-title"><b>Foto de Perfil</b></div>
                         <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
                     </div>     
 

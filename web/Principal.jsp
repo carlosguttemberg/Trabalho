@@ -88,7 +88,7 @@
             <div class="col-md-3">
                 <p class="lead">Gerenciamento de Livros</p>
                 <div class="list-group">
-                    <img class="slide-image" width="256px" weidth="256px" src=<%=imagem%> alt="">
+                    <img class="slide-image" width="256px" heidth="256px" src=<%=imagem%> alt="">
                     <a href="srvCadastroNovo?tipo=listar" class="list-group-item">Cadastro Livro</a>
                     <a href="srvEdicaoLivro?opcao=listar" class="list-group-item">Editar Coleção</a>
                     <a href="perfil.jsp" class="list-group-item">Foto Perfil</a>

@@ -164,11 +164,12 @@ public class LivroController {
         Usuario usuario = usuariodao.findById(Integer.parseInt(idUsuario));
         //LivroDAO livrodao = new LivroDAO();
         List<Livro> livros = usuario.getLivros();//livrodao.listaLivrosPorIdUsuario(Integer.parseInt(idUsuario));
+        
         for(int i = 0; i <livros.size(); i++){
             retorno += "" +
             "<div class=\"col-sm-4 col-lg-4 col-md-4\">\n" +
             "   <div class=\"thumbnail\">" + 
-            "       <img src='"+livros.get(i).getCaminhofoto() + "' alt=''>" +
+            "       <img width=256px height=256px src='"+livros.get(i).getCaminhofoto() + "' alt=''>" +
                     /*
             "        <div class=\"caption\">  " +
             "           <h4 class=\"pull-right\">$64.99</h4>" + 
