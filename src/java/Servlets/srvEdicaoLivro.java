@@ -133,7 +133,27 @@ public class srvEdicaoLivro extends HttpServlet {
                 
                 LivroController.editar(id, titulo, ano, volume, paginas, edicao, caminhofoto, idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura);
                 
-                 RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
+                
+                //atualizando a page inicial
+                 
+                String aux = session.getAttribute("idUsuario").toString();
+                
+                String listar = LivroController.listaLivroPorUsuario(aux);
+                String lendo = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "1");
+                String lido = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "2");
+                String queroler = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "3");
+                String relendo = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "4");
+                String desisti = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "5");
+                
+                session.setAttribute("listar", listar);
+                session.setAttribute("lendo", lendo);
+                session.setAttribute("lido", lido);
+                session.setAttribute("queroler", queroler);
+                session.setAttribute("relendo", relendo);
+                session.setAttribute("desisti", desisti);
+                
+                
+                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
                 rd.forward(request, response);
             }
             
