@@ -164,6 +164,7 @@ public class LivroController {
         Usuario usuario = usuariodao.findById(Integer.parseInt(idUsuario));
         //LivroDAO livrodao = new LivroDAO();
         List<Livro> livros = usuario.getLivros();//livrodao.listaLivrosPorIdUsuario(Integer.parseInt(idUsuario));
+        
         for(int i = 0; i <livros.size(); i++){
             retorno += "" +
             "<div class=\"col-sm-4 col-lg-4 col-md-4\">\n" +
