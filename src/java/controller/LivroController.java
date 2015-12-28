@@ -80,7 +80,18 @@ public class LivroController {
         new LivroDAO().alterar(l);
     }
     
-    public static void excluir(String id){
+    public static void excluir(String idUsuario, String id){
+        Usuario usuario = new UsuarioDAO().findById(Integer.parseInt(idUsuario));
+        List<Livro> livros = new ArrayList<Livro>();
+        //System.out.println(usuario.getNome());
+        livros = usuario.getLivros();
+        for(int i = 0; i<livros.size(); i++){
+            if(livros.get(i).getId() == Integer.parseInt(id)){
+                livros.remove(i);
+            }
+        }
+        usuario.setLivros(livros);
+        new UsuarioDAO().alterar(usuario);
         new LivroDAO().excluir(Integer.parseInt(id));
     }
     
