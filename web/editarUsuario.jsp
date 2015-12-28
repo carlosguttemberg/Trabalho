@@ -106,7 +106,7 @@
                                     
                                     <button class="btn btn-lg btn-primary btn-success" type="submit">Alterar</button>
                                     <button class="btn btn-lg btn-primary btn-success" type="reset">Limpar</button>
-                                    <a class="btn btn-lg btn-primary btn-success" href="index.jsp">Cancelar</a>
+                                    <a class="btn btn-lg btn-primary btn-success" href="Principal.jsp">Cancelar</a>
                                     <!--<a id="btn-fblogin" href="#" class="btn btn-primary">Login comcebook</a>-->
                                     </div>
                                 </div>
