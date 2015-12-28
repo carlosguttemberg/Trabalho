@@ -1,20 +1,23 @@
 <%-- 
-    Document   : selecionarLivro
-    Created on : 27/12/2015, 23:48:30
+    Document   : capaLivro
+    Created on : 27/12/2015, 14:50:45
     Author     : Usuario
 --%>
 
-<%
-    String listarLivros = request.getParameter("listarLivros");
-%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html> 
+    <head> 
+        <title>Capa do Livro</title> 
+    </head> 
+    <body> 
+        
+        
+
     <head>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Autor</title>
+        <title>Edição do Livro</title>
     </head>
     
     
@@ -58,13 +61,11 @@
     -->
     
     
-    
-    
       <div class="container-fluid">    
             <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
                 <div class="panel panel-success" >
                     <div class="panel-heading">
-                        <div class="panel-title"><b>Selecione um livro</b></div>
+                        <div class="panel-title"><b>Edite a capa do Livro</b></div>
                         <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
                     </div>     
 
@@ -72,38 +73,34 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form name="selecionarLivro" class="form-horizontal" action="srvEdicaoLivro?opcao=selecionar" method="POST">
+                        <form action="salvarNovaCapaLivro.jsp" method="post" enctype="multipart/form-data" > 
 
                             <div class="form-group">
-                              <label for="colecaoLivros" class="col-md-3 control-label">Coleção de Livros</label>
+                                <label for="firstname" class="col-md-3 control-label">Selecione o arquivo com a nova capa</label>
                                 <div class="col-md-9">
-                                   <select name="selLivros" class="form-control" required>
-                                        <option value=""></option>
-                                        <%=listarLivros%>
-                                   </select>
-                            </div>                         
-                            
+                                    <input type="file" name="file1"> 
+                                    
+                                </div>
+                            </div>
+                           
                             <div style="margin-top:10px" class="form-group">
                                 <!-- Button -->
 
                                 <div class="col-sm-12 controls">
-                                    <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
+                                     <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
                                     <div style="padding-top:15px" class="panel-body" >
+                                        
                                     
-                                    <button class="btn btn-lg btn-primary btn-success" type="submit">Editar</button>
+                                    <button class="btn btn-lg btn-primary btn-success" type="submit">Upload</button>
+                                    <a class="btn btn-lg btn-primary btn-success" href="srvEdicaoLivro?opcao=salvar">Manter capa atual</a>
                                     <a class="btn btn-lg btn-primary btn-success" href="Principal.jsp">Cancelar</a>
                                     <!--<a id="btn-fblogin" href="#" class="btn btn-primary">Login comcebook</a>-->
                                     </div>
                                 </div>
                             </div>
+                        </form>
                        </div>
-                      </form>
-
                             
-                                  
-
-
-
                     </div>                     
                 </div>
             </div>
@@ -112,6 +109,5 @@
         
         <script src="bootstrap/js/jquery-1.11.3.js"></script>    
         <script src="bootstrap/js/bootstrap.min.js"></script>
-    </body>
-</html>
-
+    </body> 
+</html> 

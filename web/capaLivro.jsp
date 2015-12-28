@@ -17,7 +17,7 @@
     <head>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro do Usuário</title>
+        <title>Cadastro do Livro</title>
     </head>
     
     
