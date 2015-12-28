@@ -228,25 +228,25 @@ public class LivroController {
         
         if (filtro.equals("categoria")){
             for(int i = 0; i <livros.size(); i++){
-                if(livros.get(i).getCategoria().getId() != idfiltro){
+                if(livros.get(i).getCategoria().getId() == idfiltro){
                     livrosfiltrados.add(livros.get(i));
                 }
             }
         } else if(filtro.equals("genero")){
             for(int i = 0; i <livros.size(); i++){
-                if(livros.get(i).getGenero().getId() != idfiltro){
+                if(livros.get(i).getGenero().getId() == idfiltro){
                     livrosfiltrados.add(livros.get(i));
                 }
             }
         } else if (filtro.equals("status")){
             for(int i = 0; i <livros.size(); i++){
-                if(livros.get(i).getStatus().getId() != idfiltro){
+                if(livros.get(i).getStatus().getId() == idfiltro){
                     livrosfiltrados.add(livros.get(i));
                 }
             }  
         } else if(filtro.equals("statusleitura")){
             for(int i = 0; i <livros.size(); i++){
-                if(livros.get(i).getStatusleitura().getId() != idfiltro){
+                if(livros.get(i).getStatusleitura().getId() == idfiltro){
                     livrosfiltrados.add(livros.get(i));
                 }
             }
@@ -288,25 +288,25 @@ public class LivroController {
         List<Livro> livrosfiltrados = new ArrayList<Livro>();
         if (filtro.equals("categoria")){
             for(int i = 0; i <livros.size(); i++){
-                if(livros.get(i).getCategoria().getId() != idfiltro){
+                if(livros.get(i).getCategoria().getId() == idfiltro){
                     livrosfiltrados.add(livros.get(i));
                 }
             }
         } else if(filtro.equals("genero")){
             for(int i = 0; i <livros.size(); i++){
-                if(livros.get(i).getGenero().getId() != idfiltro){
+                if(livros.get(i).getGenero().getId() == idfiltro){
                     livrosfiltrados.add(livros.get(i));
                 }
             }
         } else if (filtro.equals("status")){
             for(int i = 0; i <livros.size(); i++){
-                if(livros.get(i).getStatus().getId() != idfiltro){
+                if(livros.get(i).getStatus().getId() == idfiltro){
                     livrosfiltrados.add(livros.get(i));
                 }
             }  
         } else if(filtro.equals("statusleitura")){
             for(int i = 0; i <livros.size(); i++){
-                if(livros.get(i).getStatusleitura().getId() != idfiltro){
+                if(livros.get(i).getStatusleitura().getId() == idfiltro){
                     livrosfiltrados.add(livros.get(i));
                 }
             }
