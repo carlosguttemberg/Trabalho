@@ -1,8 +1,8 @@
 <%
        String imagem = session.getAttribute("imagem").toString();
        
-       String listar = request.getParameter("listar");
-       String lendo = request.getParameter("lendo");
+       String listar = session.getAttribute("listar").toString();
+       
        
        if(listar == null){
            listar ="";
@@ -138,8 +138,7 @@
                             <div class="caption">                               
                                 <h4><label>Lendo</label>
                                 </h4>     
-                                <h4><label><%=lendo%></label>
-                                </h4> 
+                                
                             </div>                           
                         </div>
                     </div>

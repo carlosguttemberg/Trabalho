@@ -86,10 +86,11 @@ public class srvLogin extends HttpServlet {
                 String listar = LivroController.listaLivroPorUsuario(aux);
                 HttpSession session = request.getSession();
                 session.setAttribute("imagem", foto);
+                session.setAttribute("listar", listar);
                 
-                String lendo = LivroController.listaLivroPorUsuarioFiltrado(aux, "statusleitura", "2");
+                //String lendo = LivroController.listaLivroPorUsuarioFiltrado(aux, "statusleitura", "2");
                 
-                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto + "&listar=" + listar +"&lendo=" + lendo);
+                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto);
                 rd.forward(request, response);
                 
             }else if(cmd.equals("altera")){
@@ -116,9 +117,8 @@ public class srvLogin extends HttpServlet {
                 String id = session.getAttribute("idUsuario").toString();
                 String foto = UsuarioController.retornaCampo(id, "caminhofoto");
                 UsuarioController.editar(id, nome, logon, senha, foto, email);
-                String listar = LivroController.listaLivroPorUsuario(id);
-                
-                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto + "&listar=" + listar);
+             
+                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp?foto=" + foto);
                 rd.forward(request, response);
             }
         }
