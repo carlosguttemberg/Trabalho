@@ -155,6 +155,15 @@ public class srvEdicaoLivro extends HttpServlet {
                 
                 RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
                 rd.forward(request, response);
+            }else if(opcao.equals("excluir")){
+            
+                String id = session.getAttribute("idLivroEditar").toString();
+                
+                LivroController.excluir(id);
+                
+                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
+                rd.forward(request, response);
+                
             }
             
         }
