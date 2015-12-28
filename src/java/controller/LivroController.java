@@ -209,37 +209,37 @@ public class LivroController {
         Usuario usuario = usuariodao.findById(Integer.parseInt(idUsuario));
         //LivroDAO livrodao = new LivroDAO();
         List<Livro> livros = usuario.getLivros();//livrodao.listaLivrosPorIdUsuario(Integer.parseInt(idUsuario));
-        
+        List<Livro> livrosfiltrados = null;
         if (filtro.equals("categoria")){
             for(int i = 0; i <livros.size(); i++){
                 if(livros.get(i).getCategoria().getId() != idfiltro){
-                    livros.remove(i);
+                    livrosfiltrados.add(livros.get(i));
                 }
             }
         } else if(filtro.equals("genero")){
             for(int i = 0; i <livros.size(); i++){
                 if(livros.get(i).getGenero().getId() != idfiltro){
-                    livros.remove(i);
+                    livrosfiltrados.add(livros.get(i));
                 }
             }
         } else if (filtro.equals("status")){
             for(int i = 0; i <livros.size(); i++){
                 if(livros.get(i).getStatus().getId() != idfiltro){
-                    livros.remove(i);
+                    livrosfiltrados.add(livros.get(i));
                 }
             }  
         } else if(filtro.equals("statusleitura")){
             for(int i = 0; i <livros.size(); i++){
                 if(livros.get(i).getStatusleitura().getId() != idfiltro){
-                    livros.remove(i);
+                    livrosfiltrados.add(livros.get(i));
                 }
             }
         }
-        for(int i = 0; i <livros.size(); i++){
+        for(int i = 0; i <livrosfiltrados.size(); i++){
             retorno += "" +
             "<div class=\"col-sm-4 col-lg-4 col-md-4\">\n" +
             "   <div class=\"thumbnail\">" + 
-            "       <img src='"+livros.get(i).getCaminhofoto() + "' alt=''>" +
+            "       <img src='"+livrosfiltrados.get(i).getCaminhofoto() + "' alt=''>" +
                     /*
             "        <div class=\"caption\">  " +
             "           <h4 class=\"pull-right\">$64.99</h4>" + 
@@ -261,5 +261,49 @@ public class LivroController {
         }
         
         return retorno;
+    }
+    
+    public static String contaLivroPorUsuarioEFiltro(String idUsuario, String filtro, String idFiltro){
+        String retorno = "";
+        int idfiltro = Integer.parseInt(idFiltro);
+        UsuarioDAO usuariodao = new UsuarioDAO();
+        Usuario usuario = usuariodao.findById(Integer.parseInt(idUsuario));
+        List<Livro> livros = usuario.getLivros();
+        List<Livro> livrosfiltrados = null;
+        if (filtro.equals("categoria")){
+            for(int i = 0; i <livros.size(); i++){
+                if(livros.get(i).getCategoria().getId() != idfiltro){
+                    livrosfiltrados.add(livros.get(i));
+                }
+            }
+        } else if(filtro.equals("genero")){
+            for(int i = 0; i <livros.size(); i++){
+                if(livros.get(i).getGenero().getId() != idfiltro){
+                    livrosfiltrados.add(livros.get(i));
+                }
+            }
+        } else if (filtro.equals("status")){
+            for(int i = 0; i <livros.size(); i++){
+                if(livros.get(i).getStatus().getId() != idfiltro){
+                    livrosfiltrados.add(livros.get(i));
+                }
+            }  
+        } else if(filtro.equals("statusleitura")){
+            for(int i = 0; i <livros.size(); i++){
+                if(livros.get(i).getStatusleitura().getId() != idfiltro){
+                    livrosfiltrados.add(livros.get(i));
+                }
+            }
+        }else if(filtro.equals("")){
+            for(int i = 0; i <livros.size(); i++){
+                livrosfiltrados.add(livros.get(i));
+             
+             
+            }
+        }
+        retorno += "" + livrosfiltrados.size();
+        return retorno;
+        
+        
     }
 }
