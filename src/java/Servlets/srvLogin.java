@@ -84,11 +84,11 @@ public class srvLogin extends HttpServlet {
                 String aux = Integer.toString(UsuarioController.retornaId(login));
                 foto = UsuarioController.retornaCampo(aux, "caminhofoto");
                 String listar = LivroController.listaLivroPorUsuario(aux);
-                //String lendo = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "1");
+                String lendo = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "1");
                 HttpSession session = request.getSession();
                 session.setAttribute("imagem", foto);
                 session.setAttribute("listar", listar);
-                //session.setAttribute("lendo", lendo);
+                session.setAttribute("lendo", lendo);
                 
                 
                 //String lendo = LivroController.listaLivroPorUsuarioFiltrado(aux, "statusleitura", "2");

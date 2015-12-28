@@ -2,7 +2,7 @@
        String imagem = session.getAttribute("imagem").toString();
        
        String listar = session.getAttribute("listar").toString();
-       //String lendo = session.getAttribute("lendo").toString();
+       String lendo = session.getAttribute("lendo").toString();
        
        
        if(listar == null){
@@ -139,7 +139,8 @@
                             <div class="caption">                               
                                 <h4><label>Lendo</label>
                                 </h4>     
-                                   
+                                <h4><label><%=lendo%></label>
+                                </h4>        
                             </div>                           
                         </div>
                     </div>
