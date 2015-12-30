@@ -109,7 +109,7 @@ public class srvLogin extends HttpServlet {
                     lendo = (lendo/total) * 100;
                     session.setAttribute("lendo", df.format(lendo));
                 }else{
-                    session.setAttribute("tenho",lendo);
+                    session.setAttribute("lendo",lendo);
                 }
                 
                 

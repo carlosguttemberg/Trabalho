@@ -15,7 +15,7 @@
        String total = session.getAttribute("total").toString();
        
        if(lendo == null){
-           listar ="0";
+           lendo ="0";
        }
        
        if(lido == null){
