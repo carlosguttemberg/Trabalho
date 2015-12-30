@@ -83,7 +83,7 @@ public class srvCadastroLote extends HttpServlet {
                             String idStatusLeitura = request.getParameter("selStatusLeitura");
                             String idUsuario = request.getParameter("idUsuario");
 
-                            LivroController.salvar(titulo, subtitulo, ano, volume, paginas, edicao, "", idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura, idUsuario);
+                            LivroController.salvar(titulo, subtitulo, ano, volume, paginas, edicao, "livro.png", idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura, idUsuario);
 
                             String idLivro = String.valueOf(LivroController.retornaLivrosId(titulo,volume, edicao));
 

@@ -105,12 +105,7 @@ public class srvLogin extends HttpServlet {
                 
                 Float total = lendo + lido + queroler + relendo + desisti;
                 
-                if (lendo != 0){
-                    lendo = (lendo/total) * 100;
-                    session.setAttribute("lendo", df.format(lendo));
-                }else{
-                    session.setAttribute("lendo",lendo);
-                }
+                
                 
                 
                 session.setAttribute("imagem", foto);
@@ -140,9 +135,9 @@ public class srvLogin extends HttpServlet {
                 
                 if (faltante != 0){
                     faltante = (faltante/totalaqu) * 100;
-                    session.setAttribute("faltante", df.format(tenho));
+                    session.setAttribute("faltante", df.format(faltante));
                 }else{
-                    session.setAttribute("faltante",tenho);
+                    session.setAttribute("faltante",faltante);
                 }
                 
                 

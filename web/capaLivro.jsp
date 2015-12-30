@@ -93,7 +93,7 @@
                                     
                                     <button class="btn btn-lg btn-primary btn-success" type="submit">Upload</button>
                                     
-                                    <a class="btn btn-lg btn-primary btn-success" href="Principal.jsp">Cancelar</a>
+                                    <a class="btn btn-lg btn-primary btn-success" href="srvCadastroLivro?opcao=cancelar">Cancelar</a>
                                     <!--<a id="btn-fblogin" href="#" class="btn btn-primary">Login comcebook</a>-->
                                     </div>
                                 </div>
