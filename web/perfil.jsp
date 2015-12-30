@@ -31,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">Gerenciamento de Livros</a>
+                <a class="navbar-brand" href="Principal.jsp">Principal</a>
             </div>
                
             </div>

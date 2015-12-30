@@ -1,4 +1,5 @@
 <%
+       session.setAttribute("Lote", "nao");
        String imagem = session.getAttribute("imagem").toString();
        
        String listar = session.getAttribute("listar").toString();
@@ -13,10 +14,37 @@
        String sem = session.getAttribute("sem").toString() + "%";
        String total = session.getAttribute("total").toString();
        
-       
-       if(listar == null){
-           listar ="";
+       if(lendo == null){
+           listar ="0";
        }
+       
+       if(lido == null){
+           lido ="0";
+       }
+       
+       if(queroler == null){
+           queroler ="0";
+       }
+       
+       if(desisti == null){
+           desisti ="0";
+       }
+       
+       
+       if(tenho == null){
+           tenho ="0";
+       }
+       
+       if(faltante == null){
+           faltante ="0";
+       }
+       if(sem == null){
+           sem ="0";
+       }
+       if(total == null){
+           total ="0";
+       }
+      
        
        String nome = session.getAttribute("nome").toString();
        

@@ -89,16 +89,30 @@ public class srvLogin extends HttpServlet {
                 
                 
                 //status da leitura
-                Float lendo = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "1"));
-                Float lido = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "2"));
-                Float queroler = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "3"));
-                Float relendo = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "4"));
-                Float desisti = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "5"));
+                Float lendo = 0.0f;
+                Float lido = 0.0f;
+                Float queroler = 0.0f;
+                Float relendo = 0.0f;
+                Float desisti = 0.0f;
+                
+                HttpSession session = request.getSession();
+                
+                lendo = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "1"));
+                lido = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "2"));
+                queroler = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "3"));
+                relendo = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "4"));
+                desisti = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "5"));
                 
                 Float total = lendo + lido + queroler + relendo + desisti;
                 
+                if (lendo != 0){
+                    lendo = (lendo/total) * 100;
+                    session.setAttribute("lendo", df.format(lendo));
+                }else{
+                    session.setAttribute("tenho",lendo);
+                }
                 
-                HttpSession session = request.getSession();
+                
                 session.setAttribute("imagem", foto);
                 session.setAttribute("listar", listar);
                 session.setAttribute("lendo", df.format((lendo/total) * 100));
@@ -108,14 +122,43 @@ public class srvLogin extends HttpServlet {
                 session.setAttribute("desisti", df.format((desisti/total) * 100));
                 
                 //status do aquisição 
-                Float tenho = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "1"));
-                Float faltante = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "2"));
-                Float sem = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "3"));
+                Float tenho = 0.0f;
+                Float faltante = 0.0f;
+                Float sem = 0.0f;
+                tenho = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "1"));
+                faltante = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "2"));
+                sem = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "3"));
                 Float totalaqu = tenho + faltante + sem;
                 Integer totallivro = Integer.parseInt(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "1")) + Integer.parseInt(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "2")) + Integer.parseInt(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "3"));
-                session.setAttribute("tenho", df.format((tenho/totalaqu) * 100));
-                session.setAttribute("faltante", df.format((faltante/totalaqu) * 100));
-                session.setAttribute("sem", df.format((sem/totalaqu) * 100));
+                
+                if (tenho != 0){
+                    tenho = (tenho/totalaqu) * 100;
+                    session.setAttribute("tenho", df.format(tenho));
+                }else{
+                    session.setAttribute("tenho",tenho);
+                }
+                
+                if (faltante != 0){
+                    faltante = (faltante/totalaqu) * 100;
+                    session.setAttribute("faltante", df.format(tenho));
+                }else{
+                    session.setAttribute("faltante",tenho);
+                }
+                
+                
+                if (sem != 0){
+                    sem = (sem/totalaqu) * 100;
+                    session.setAttribute("sem", df.format(sem));
+                }else{
+                    session.setAttribute("sem",sem);
+                }
+               
+                   
+                
+                
+                
+                
+                
                 session.setAttribute("total", totallivro);
                 
                 
