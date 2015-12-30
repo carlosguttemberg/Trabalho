@@ -5,12 +5,15 @@
  */
 package Servlets;
 
+import controller.LivroController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,11 +37,130 @@ public class srvCadastroLote extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             
             
+            HttpSession session = request.getSession();
+            String opcao1 = request.getParameter("op1");
+            String opcao2 = request.getParameter("op2");
+            
+           
             
             
-            String tituloLote = request.getParameter("titulo");
-            String volumeLote = request.getParameter("volume");
             
+            if(opcao1.equals("primeiro")){
+            
+                session.setAttribute("Lote", "sim");
+                String tituloLote = request.getParameter("titulo");
+                String volumeLote = request.getParameter("volume");
+                int i =1;
+                
+                session.setAttribute("tituloLote", tituloLote);
+                session.setAttribute("volumeLote", volumeLote);
+                session.setAttribute("i", i);
+                
+                RequestDispatcher rd = request.getRequestDispatcher("srvCadastroNovo?tipo=listar");
+                rd.forward(request, response);
+                
+                
+            }else if(opcao1.equals("segundo")){
+        
+                
+                    int volumeLote = Integer.parseInt(session.getAttribute("volumeLote").toString());
+                    int i = Integer.parseInt(session.getAttribute("i").toString());
+
+
+                        if(opcao2.equals("incluir")){
+                            String titulo = session.getAttribute("tituloLote").toString();
+                            String subtitulo = request.getParameter("subtitulo");
+                            String idAutor = request.getParameter("selautores");
+                            String idEditora = request.getParameter("seleditoras");
+                            String idCategoria = request.getParameter("selcategorias");
+                            String idGenero = request.getParameter("selgeneros");
+                            String ano = request.getParameter("ano");
+                            String paginas = request.getParameter("paginas");
+                            String edicao = request.getParameter("edicao");
+                            String volume = session.getAttribute("i").toString();
+                            String idStatus = request.getParameter("selStatusLivro");
+                            String idStatusLeitura = request.getParameter("selStatusLeitura");
+                            String idUsuario = request.getParameter("idUsuario");
+
+                            LivroController.salvar(titulo, subtitulo, ano, volume, paginas, edicao, "", idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura, idUsuario);
+
+                            String idLivro = String.valueOf(LivroController.retornaLivrosId(titulo,volume, edicao));
+
+                            session.setAttribute("idLivro", idLivro);
+                            session.setAttribute("titulo", titulo);
+                            session.setAttribute("subtitulo", subtitulo);
+                            session.setAttribute("idAutor", idAutor);
+                            session.setAttribute("idEditora", idEditora);
+                            session.setAttribute("idCategoria", idCategoria);
+                            session.setAttribute("idGenero", idGenero);
+                            session.setAttribute("ano", ano);
+                            session.setAttribute("paginas", paginas);
+                            session.setAttribute("edicao", edicao);
+                            session.setAttribute("volume", volume);
+                            session.setAttribute("idStatus", idStatus);
+                            session.setAttribute("idStatusLeitura", idStatusLeitura);
+
+                            RequestDispatcher rd = request.getRequestDispatcher("capaLivro.jsp");
+                            rd.forward(request, response);
+                        
+
+                    }else if(opcao2.equals("alterar")){
+                
+                            String caminhofoto = request.getParameter("imagem");
+
+                             String id = session.getAttribute("idLivro").toString();
+                             String titulo = session.getAttribute("titulo").toString();
+                             String subtitulo = session.getAttribute("subtitulo").toString();
+                             String idAutor = session.getAttribute("idAutor").toString();
+                             String idEditora = session.getAttribute("idEditora").toString();
+                             String idCategoria = session.getAttribute("idCategoria").toString();
+                             String idGenero = session.getAttribute("idGenero").toString();
+                             String ano = session.getAttribute("ano").toString();
+                             String paginas = session.getAttribute("paginas").toString();
+                             String edicao = session.getAttribute("edicao").toString();
+                             String volume = session.getAttribute("volume").toString();
+                             String idStatus = session.getAttribute("idStatus").toString();
+                             String idStatusLeitura = session.getAttribute("idStatusLeitura").toString();
+
+                             LivroController.editar(id, titulo, subtitulo, ano, volume, paginas, edicao, caminhofoto, idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura);
+
+                             //atualizando a page inicial
+
+                            String aux = session.getAttribute("idUsuario").toString();
+
+                            String listar = LivroController.listaLivroPorUsuario(aux);
+                            String lendo = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "1");
+                            String lido = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "2");
+                            String queroler = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "3");
+                            String relendo = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "4");
+                            String desisti = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "5");
+
+                            session.setAttribute("listar", listar);
+                            session.setAttribute("lendo", lendo);
+                            session.setAttribute("lido", lido);
+                            session.setAttribute("queroler", queroler);
+                            session.setAttribute("relendo", relendo);
+                            session.setAttribute("desisti", desisti);
+                            
+                            i++;
+
+                            session.setAttribute("i", i);
+                            
+                            if(i<=volumeLote){
+                            
+                                RequestDispatcher rd = request.getRequestDispatcher("srvCadastroNovo?tipo=listar");
+                                rd.forward(request, response);
+                            }else{
+                                session.setAttribute("Lote", "nao");
+                                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
+                                rd.forward(request, response);
+
+                        }
+                    }
+                
+                
+            
+            }
             
             
             

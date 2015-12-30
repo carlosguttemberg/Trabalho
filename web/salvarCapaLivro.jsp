@@ -34,8 +34,15 @@
 
         fos.close();
         //out.println(getServletContext().getRealPath(getServletContext().getContextPath()));
-        RequestDispatcher rd = request.getRequestDispatcher("srvCadastroLivro?opcao=alterar&imagem=TrabalhoP1" + imagem);
-        rd.forward(request, response);
+        String lote = session.getAttribute("Lote").toString();
+                
+        if(lote.equals("sim")){
+            RequestDispatcher rd = request.getRequestDispatcher("srvCadastroLote?op1=segundo&op2=alterar&imagem=TrabalhoP1" + imagem);
+            rd.forward(request, response);
+        }else{
+            RequestDispatcher rd = request.getRequestDispatcher("srvCadastroLivro?opcao=alterar&imagem=TrabalhoP1" + imagem);
+            rd.forward(request, response);
+        }
     } catch (Exception e) {
         out.println(e.toString());
     }

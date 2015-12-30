@@ -18,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,6 +40,7 @@ public class srvCadastroNovo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            HttpSession session = request.getSession();
             String tipo = request.getParameter("tipo");
             
             if(tipo.equals("autor")){
@@ -67,17 +69,33 @@ public class srvCadastroNovo extends HttpServlet {
                 
             }
             
+            
+            
+            
                 String listarAutor = AutorController.retornaSelect();
                 String listarCategoria = CategoriaController.retornaSelect();
                 String listarEditora = EditoraController.retornaSelect();
                 String listarGenero = GeneroController.retornaSelect();
                 String listarStatus = StatusController.retornaSelect();
                 String listarStatusLeitura = StatusLeituraController.retornaSelect();
+                
+                String lote = session.getAttribute("Lote").toString();
+                
+                if(lote.equals("sim")){
+                RequestDispatcher rd = request.getRequestDispatcher("cadastroLivroLote.jsp?listarAutor="+listarAutor+
+                        "&listarCategoria="+listarCategoria+"&listarEditora="+listarEditora+"&listarGenero="
+                        +listarGenero+"&listarStatus="+listarStatus+"&listarStatusLeitura="+listarStatusLeitura);
+                rd.forward(request, response);
+                
+                }else{
+                
                 RequestDispatcher rd = request.getRequestDispatcher("cadastroLivro.jsp?listarAutor="+listarAutor+
                         "&listarCategoria="+listarCategoria+"&listarEditora="+listarEditora+"&listarGenero="
                         +listarGenero+"&listarStatus="+listarStatus+"&listarStatusLeitura="+listarStatusLeitura);
                 rd.forward(request, response);
-        }
+        
+                }
+                }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

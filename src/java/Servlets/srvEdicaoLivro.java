@@ -70,7 +70,7 @@ public class srvEdicaoLivro extends HttpServlet {
                 String ano = LivroController.retornaCampo(idLivro, "ano");
                 String paginas = LivroController.retornaCampo(idLivro, "paginas");
                 String edicao = LivroController.retornaCampo(idLivro, "edicao");
-                String volume = LivroController.retornaCampo(idLivro, "edicao");
+                String volume = LivroController.retornaCampo(idLivro, "volume");
                 String listarStatus = StatusController.retornaSelect();
                 String listarStatusLeitura = StatusLeituraController.retornaSelect();
                 
