@@ -90,6 +90,7 @@
                 <div class="list-group">
                     <img class="slide-image" width="256px" heidth="256px" src=<%=imagem%> alt="">
                     <a href="srvCadastroNovo?tipo=listar" class="list-group-item">Cadastrar livro</a>
+                    <a href="cadastroLote.jsp" class="list-group-item">Cadastar coleção em lote</a>
                     <a href="srvEdicaoLivro?opcao=listar" class="list-group-item">Editar coleção</a>
                     <a href="perfil.jsp" class="list-group-item">Alterar foto do perfil</a>
                     <a href="editarUsuario.jsp" class="list-group-item">Alterar dados do usuário</a>

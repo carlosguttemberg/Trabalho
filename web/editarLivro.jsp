@@ -32,6 +32,7 @@
         <%
         
             String titulo = request.getParameter("titulo");
+            String subtitulo = request.getParameter("subtitulo");
             String ano = request.getParameter("ano");
             String volume = request.getParameter("volume");
             String paginas = request.getParameter("paginas");
@@ -88,6 +89,13 @@
                                 <label for="titulo" class="col-md-3 control-label">Título</label>
                                 <div class="col-md-9">
                                     <input type="text" class="form-control" name="titulo" value="<%=titulo%>" placeholder="" required>
+                                </div>
+                            </div>
+                                
+                            <div class="form-group">
+                                <label for="subtitulo" class="col-md-3 control-label">Subtítulo</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="subtitulo" value="<%=subtitulo%>" placeholder="" required>
                                 </div>
                             </div>
                             
