@@ -1,6 +1,7 @@
 <%
-       String imagem = session.getAttribute("imagem").toString();
        
+       session.setAttribute("Lote", "nao");
+       String imagem = session.getAttribute("imagem").toString();            
        String listar = session.getAttribute("listar").toString();
        String lendo = session.getAttribute("lendo").toString() + "%";
        String lido = session.getAttribute("lido").toString() + "%";
