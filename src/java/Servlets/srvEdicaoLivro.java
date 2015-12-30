@@ -14,6 +14,7 @@ import controller.StatusController;
 import controller.StatusLeituraController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +45,7 @@ public class srvEdicaoLivro extends HttpServlet {
             
             HttpSession session = request.getSession();
             String opcao = request.getParameter("opcao");
-            
+            DecimalFormat df = new DecimalFormat("#0.00");
             if(opcao.equals("listar")){
             
                 String listarLivros = LivroController.retornaSelect();
@@ -141,20 +142,36 @@ public class srvEdicaoLivro extends HttpServlet {
                 //atualizando a page inicial
                  
                 String aux = session.getAttribute("idUsuario").toString();
-                
                 String listar = LivroController.listaLivroPorUsuario(aux);
-                String lendo = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "1");
-                String lido = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "2");
-                String queroler = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "3");
-                String relendo = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "4");
-                String desisti = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "5");
+                //status da leitura
+                Float lendo = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "1"));
+                Float lido = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "2"));
+                Float queroler = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "3"));
+                Float relendo = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "4"));
+                Float desisti = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "5"));
                 
+                Float total = lendo + lido + queroler + relendo + desisti;
+                
+                
+                
+                //session.setAttribute("imagem", foto);
                 session.setAttribute("listar", listar);
-                session.setAttribute("lendo", lendo);
-                session.setAttribute("lido", lido);
-                session.setAttribute("queroler", queroler);
-                session.setAttribute("relendo", relendo);
-                session.setAttribute("desisti", desisti);
+                session.setAttribute("lendo", df.format((lendo/total) * 100));
+                session.setAttribute("lido", df.format((lido/total) * 100));
+                session.setAttribute("queroler", df.format((queroler/total) * 100));
+                session.setAttribute("relendo", df.format((relendo/total) * 100));
+                session.setAttribute("desisti", df.format((desisti/total) * 100));
+                
+                //status do aquisição 
+                Float tenho = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "1"));
+                Float faltante = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "2"));
+                Float sem = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "3"));
+                Float totalaqu = tenho + faltante + sem;
+                Integer totallivro = Integer.parseInt(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "1")) + Integer.parseInt(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "2")) + Integer.parseInt(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "3"));
+                session.setAttribute("tenho", df.format((tenho/totalaqu) * 100));
+                session.setAttribute("faltante", df.format((faltante/totalaqu) * 100));
+                session.setAttribute("sem", df.format((sem/totalaqu) * 100));
+                session.setAttribute("total", totallivro);
                 
                 
                 RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
@@ -174,19 +191,37 @@ public class srvEdicaoLivro extends HttpServlet {
                  
                 //String aux = session.getAttribute("idUsuario").toString();
                 
+                //String aux = session.getAttribute("idUsuario").toString();
                 //String listar = LivroController.listaLivroPorUsuario(aux);
-                String lendo = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "1");
-                String lido = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "2");
-                String queroler = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "3");
-                String relendo = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "4");
-                String desisti = LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "5");
+                //status da leitura
+                Float lendo = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "1"));
+                Float lido = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "2"));
+                Float queroler = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "3"));
+                Float relendo = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "4"));
+                Float desisti = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "statusleitura", "5"));
                 
+                Float total = lendo + lido + queroler + relendo + desisti;
+                
+                
+                
+                //session.setAttribute("imagem", foto);
                 session.setAttribute("listar", listar);
-                session.setAttribute("lendo", lendo);
-                session.setAttribute("lido", lido);
-                session.setAttribute("queroler", queroler);
-                session.setAttribute("relendo", relendo);
-                session.setAttribute("desisti", desisti);
+                session.setAttribute("lendo", df.format((lendo/total) * 100));
+                session.setAttribute("lido", df.format((lido/total) * 100));
+                session.setAttribute("queroler", df.format((queroler/total) * 100));
+                session.setAttribute("relendo", df.format((relendo/total) * 100));
+                session.setAttribute("desisti", df.format((desisti/total) * 100));
+                
+                //status do aquisição 
+                Float tenho = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "1"));
+                Float faltante = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "2"));
+                Float sem = Float.parseFloat(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "3"));
+                Float totalaqu = tenho + faltante + sem;
+                Integer totallivro = Integer.parseInt(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "1")) + Integer.parseInt(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "2")) + Integer.parseInt(LivroController.contaLivroPorUsuarioEFiltro(aux, "status", "3"));
+                session.setAttribute("tenho", df.format((tenho/totalaqu) * 100));
+                session.setAttribute("faltante", df.format((faltante/totalaqu) * 100));
+                session.setAttribute("sem", df.format((sem/totalaqu) * 100));
+                session.setAttribute("total", totallivro);
                 
                 RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
                 rd.forward(request, response);

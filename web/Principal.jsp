@@ -2,11 +2,16 @@
        String imagem = session.getAttribute("imagem").toString();
        
        String listar = session.getAttribute("listar").toString();
-       String lendo = session.getAttribute("lendo").toString();
-       String lido = session.getAttribute("lido").toString();
-       String queroler = session.getAttribute("queroler").toString();
-       String desisti = session.getAttribute("desisti").toString();
-       String relendo = session.getAttribute("relendo").toString();
+       String lendo = session.getAttribute("lendo").toString() + "%";
+       String lido = session.getAttribute("lido").toString() + "%";
+       String queroler = session.getAttribute("queroler").toString() + "%";
+       String desisti = session.getAttribute("desisti").toString() + "%";
+       String relendo = session.getAttribute("relendo").toString() + "%";
+       
+       String tenho = session.getAttribute("tenho").toString() + "%";
+       String faltante = session.getAttribute("faltante").toString() + "%";
+       String sem = session.getAttribute("sem").toString() + "%";
+       String total = session.getAttribute("total").toString();
        
        
        if(listar == null){
@@ -198,7 +203,35 @@
             </div>
             
         </div>
-  
+        <div class="row">
+            <div class="col-sm-3 col-lg-3 col-md-3">
+                <div class="caption">                               
+                    <label>Tenho:</label>
+                    <label><%=tenho%></label>
+                    
+                </div>
+            </div>
+            
+            <div class="col-sm-3 col-lg-3 col-md-3">                               
+                <label>Faltante:</label>
+                <label><%=faltante%></label>
+                    
+            </div> 
+                
+                
+            <div class="col-sm-3 col-lg-3 col-md-3">                               
+                <label>Sem Interesse:</label>
+                <label><%=sem%></label>
+                    
+            </div>
+            <div class="col-sm-3 col-lg-3 col-md-3">                               
+                <label>Total de Livros:</label>
+                <label><%=total%></label>
+                    
+            </div> 
+        </div>
+                
+        <!--<label>Tenho: <%=tenho + "   "%></label>            <label>  Faltante: <%=faltante%></label>            <label>  Sem Interesse: <%=sem%></label>     -->                     
         <br><br>
                 
         <%=listar%>
