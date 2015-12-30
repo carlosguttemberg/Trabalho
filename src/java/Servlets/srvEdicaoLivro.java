@@ -62,6 +62,7 @@ public class srvEdicaoLivro extends HttpServlet {
                 
                 
                 String titulo = LivroController.retornaCampo(idLivro, "titulo");
+                String subtitulo = LivroController.retornaCampo(idLivro, "subtitulo");
                 String listarAutor = AutorController.retornaSelect();
                 String listarEditora = EditoraController.retornaSelect();
                 String listarCategoria = CategoriaController.retornaSelect();
@@ -73,7 +74,7 @@ public class srvEdicaoLivro extends HttpServlet {
                 String listarStatus = StatusController.retornaSelect();
                 String listarStatusLeitura = StatusLeituraController.retornaSelect();
                 
-                RequestDispatcher rd = request.getRequestDispatcher("editarLivro.jsp?titulo="+titulo+"&listarAutor="+listarAutor+
+                RequestDispatcher rd = request.getRequestDispatcher("editarLivro.jsp?titulo="+titulo+"&subtitulo="+subtitulo+"&listarAutor="+listarAutor+
                         "&listarEditora="+listarEditora+"&listarCategoria="+listarCategoria+"&listarGenero="+listarGenero+"&ano="+ano+
                         "&paginas="+paginas+"&edicao="+edicao+"&volume="+volume+"&listarStatus="+listarStatus+"&listarStatusLeitura="+listarStatusLeitura);
                 rd.forward(request, response);                
@@ -83,6 +84,7 @@ public class srvEdicaoLivro extends HttpServlet {
                 
                                
                 String titulo = request.getParameter("titulo");
+                String subtitulo = request.getParameter("subtitulo");
                 String idAutor = request.getParameter("selautores");
                 String idEditora = request.getParameter("seleditoras");
                 String idCategoria = request.getParameter("selcategorias");
@@ -95,6 +97,7 @@ public class srvEdicaoLivro extends HttpServlet {
                 String idStatusLeitura = request.getParameter("selStatusLeitura");
                 
                 session.setAttribute("titulo", titulo);
+                session.setAttribute("subtitulo", subtitulo);
                 session.setAttribute("idAutor", idAutor);
                 session.setAttribute("idEditora", idEditora);
                 session.setAttribute("idCategoria", idCategoria);
@@ -120,6 +123,7 @@ public class srvEdicaoLivro extends HttpServlet {
                 String id = session.getAttribute("idLivroEditar").toString();
                 String caminhofoto = session.getAttribute("capaLivro").toString();            
                 String titulo = session.getAttribute("titulo").toString(); 
+                String subtitulo = session.getAttribute("subtitulo").toString(); 
                 String idAutor = session.getAttribute("idAutor").toString(); 
                 String idEditora = session.getAttribute("idEditora").toString(); 
                 String idCategoria = session.getAttribute("idCategoria").toString(); 
@@ -131,7 +135,7 @@ public class srvEdicaoLivro extends HttpServlet {
                 String idStatus = session.getAttribute("idStatus").toString(); 
                 String idStatusLeitura = session.getAttribute("idStatusLeitura").toString(); 
                 
-                LivroController.editar(id, titulo, ano, volume, paginas, edicao, caminhofoto, idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura);
+                LivroController.editar(id, titulo, subtitulo, ano, volume, paginas, edicao, caminhofoto, idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura);
                 
                 
                 //atualizando a page inicial
