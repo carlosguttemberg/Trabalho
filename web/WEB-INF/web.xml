@@ -12,6 +12,10 @@
         <servlet-name>srvEdicaoLivro</servlet-name>
         <servlet-class>Servlets.srvEdicaoLivro</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>srvCadastroLote</servlet-name>
+        <servlet-class>Servlets.srvCadastroLote</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>srvCadastroNovo</servlet-name>
         <url-pattern>/srvCadastroNovo</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>srvEdicaoLivro</servlet-name>
         <url-pattern>/srvEdicaoLivro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvCadastroLote</servlet-name>
+        <url-pattern>/srvCadastroLote</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

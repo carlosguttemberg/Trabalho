@@ -40,6 +40,7 @@ public class srvCadastroLivro extends HttpServlet {
             
             if(opcao.equals("incluir")){        
                 String titulo = request.getParameter("titulo");
+                String subtitulo = request.getParameter("subtitulo");
                 String idAutor = request.getParameter("selautores");
                 String idEditora = request.getParameter("seleditoras");
                 String idCategoria = request.getParameter("selcategorias");
@@ -52,13 +53,14 @@ public class srvCadastroLivro extends HttpServlet {
                 String idStatusLeitura = request.getParameter("selStatusLeitura");
                 String idUsuario = request.getParameter("idUsuario");
 
-                LivroController.salvar(titulo, ano, volume, paginas, edicao, "", idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura, idUsuario);
+                LivroController.salvar(titulo, subtitulo, ano, volume, paginas, edicao, "", idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura, idUsuario);
                 
                 String idLivro = String.valueOf(LivroController.retornaLivrosId(titulo,volume, edicao));
 
                 HttpSession session = request.getSession();
                 session.setAttribute("idLivro", idLivro);
                 session.setAttribute("titulo", titulo);
+                session.setAttribute("subtitulo", subtitulo);
                 session.setAttribute("idAutor", idAutor);
                 session.setAttribute("idEditora", idEditora);
                 session.setAttribute("idCategoria", idCategoria);
@@ -79,6 +81,7 @@ public class srvCadastroLivro extends HttpServlet {
                 
                  String id = session.getAttribute("idLivro").toString();
                  String titulo = session.getAttribute("titulo").toString();
+                 String subtitulo = session.getAttribute("subtitulo").toString();
                  String idAutor = session.getAttribute("idAutor").toString();
                  String idEditora = session.getAttribute("idEditora").toString();
                  String idCategoria = session.getAttribute("idCategoria").toString();
@@ -90,7 +93,7 @@ public class srvCadastroLivro extends HttpServlet {
                  String idStatus = session.getAttribute("idStatus").toString();
                  String idStatusLeitura = session.getAttribute("idStatusLeitura").toString();
                  
-                 LivroController.editar(id, titulo, ano, volume, paginas, edicao, caminhofoto, idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura);
+                 LivroController.editar(id, titulo, subtitulo, ano, volume, paginas, edicao, caminhofoto, idAutor, idEditora, idCategoria, idGenero, idStatus, idStatusLeitura);
                  
                  //atualizando a page inicial
                  

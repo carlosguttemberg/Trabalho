@@ -91,6 +91,13 @@
                                 </div>
                             </div>
                             
+                            <div class="form-group">
+                                <label for="subtitulo" class="col-md-3 control-label">Subtítulo</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="subtitulo" placeholder="" >
+                                </div>
+                            </div>
+                            
                             
                             <div class="form-group">
                                 <label for="autor" class="col-md-3 control-label">Autor</label>
