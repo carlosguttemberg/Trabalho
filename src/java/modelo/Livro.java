@@ -30,6 +30,8 @@ public class Livro implements Serializable {
     private int id;
     @Column(name = "titulo")//, unique = true)
     private String titulo;
+    @Column(name = "subtitulo")//, unique = true)
+    private String subtitulo;
     @Column(name = "ano")
     private int ano;
     @Column(name = "volume")
@@ -84,6 +86,39 @@ public class Livro implements Serializable {
 
     public Livro(String titulo, int ano, int volume, int paginas, String edicao, String caminhofoto, Autor autor, Editora editora, Categoria categoria, Genero genero, Status status, StatusLeitura statusleitura) {
         this.titulo = titulo;
+        this.ano = ano;
+        this.volume = volume;
+        this.paginas = paginas;
+        this.edicao = edicao;
+        this.caminhofoto = caminhofoto;
+        this.autor = autor;
+        this.editora = editora;
+        this.categoria = categoria;
+        this.genero = genero;
+        this.status = status;
+        this.statusleitura = statusleitura;
+    }
+
+    public Livro(String titulo, String subtitulo, int ano, int volume, int paginas, String edicao, String caminhofoto, Autor autor, Editora editora, Categoria categoria, Genero genero, Status status, StatusLeitura statusleitura) {
+        this.titulo = titulo;
+        this.subtitulo = subtitulo;
+        this.ano = ano;
+        this.volume = volume;
+        this.paginas = paginas;
+        this.edicao = edicao;
+        this.caminhofoto = caminhofoto;
+        this.autor = autor;
+        this.editora = editora;
+        this.categoria = categoria;
+        this.genero = genero;
+        this.status = status;
+        this.statusleitura = statusleitura;
+    }
+
+    public Livro(int id, String titulo, String subtitulo, int ano, int volume, int paginas, String edicao, String caminhofoto, Autor autor, Editora editora, Categoria categoria, Genero genero, Status status, StatusLeitura statusleitura) {
+        this.id = id;
+        this.titulo = titulo;
+        this.subtitulo = subtitulo;
         this.ano = ano;
         this.volume = volume;
         this.paginas = paginas;
