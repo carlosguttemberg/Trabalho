@@ -15,7 +15,7 @@
     <head>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Livro</title>
+        <title>Cadastro de Livro em Lote</title>
     </head>
     
     
@@ -36,7 +36,8 @@
         </nav>
         <%
         
-            session.setAttribute("Lote", "nao");
+            String titulo = session.getAttribute("tituloLote").toString();
+            String volume = session.getAttribute("i").toString();            
             String listarAutor = request.getParameter("listarAutor");        
             String listarCategoria = request.getParameter("listarCategoria");        
             String listarEditora = request.getParameter("listarEditora");        
@@ -83,12 +84,12 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form id="loginform" class="form-horizontal" role="form" action="srvCadastroLivro">
+                        <form id="loginform" class="form-horizontal" role="form" action="srvCadastroLote">
 
                             <div class="form-group">
                                 <label for="titulo" class="col-md-3 control-label">Título</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="titulo" placeholder="" required>
+                                    <label><%=titulo%></label> 
                                 </div>
                             </div>
                             
@@ -168,7 +169,7 @@
                             <div class="form-group">
                                 <label for="volume" class="col-md-3 control-label">Volume</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="volume" placeholder="" required>
+                                    <label class="col-md-3 control-label"><%=volume%></label> 
                                 </div>
                             </div>
                             
@@ -202,7 +203,8 @@
                                      <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
                                     <div style="padding-top:15px" class="panel-body" >
                                     <input type="hidden" value="<%=idUsuario%>" name="idUsuario">
-                                    <input type="hidden" value="incluir" name="opcao">
+                                    <input type="hidden" value="segundo" name="op1">
+                                    <input type="hidden" value="incluir" name="op2">
                                     <button class="btn btn-lg btn-primary btn-success" type="submit">Cadastrar</button>
                                     <button class="btn btn-lg btn-primary btn-success" type="reset">Limpar</button>
                                     <a class="btn btn-lg btn-primary btn-success" href="Principal.jsp">Cancelar</a>

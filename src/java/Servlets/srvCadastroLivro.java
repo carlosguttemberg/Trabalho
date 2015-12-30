@@ -37,8 +37,10 @@ public class srvCadastroLivro extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            HttpSession session = request.getSession();
             String opcao = request.getParameter("opcao");
             DecimalFormat df = new DecimalFormat("#0.00");
+            
             if(opcao.equals("incluir")){        
                 String titulo = request.getParameter("titulo");
                 String subtitulo = request.getParameter("subtitulo");
@@ -58,7 +60,7 @@ public class srvCadastroLivro extends HttpServlet {
                 
                 String idLivro = String.valueOf(LivroController.retornaLivrosId(titulo,volume, edicao));
 
-                HttpSession session = request.getSession();
+               
                 session.setAttribute("idLivro", idLivro);
                 session.setAttribute("titulo", titulo);
                 session.setAttribute("subtitulo", subtitulo);
@@ -78,7 +80,7 @@ public class srvCadastroLivro extends HttpServlet {
             }else if(opcao.equals("alterar")){
                 
                 String caminhofoto = request.getParameter("imagem");
-                HttpSession session = request.getSession();
+
                 
                  String id = session.getAttribute("idLivro").toString();
                  String titulo = session.getAttribute("titulo").toString();

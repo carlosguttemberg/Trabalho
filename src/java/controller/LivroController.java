@@ -129,7 +129,7 @@ public class LivroController {
         List<Livro> livros = dao.findAll();
         String retorno = "";
         for(int i=0; i< livros.size(); i++){
-            retorno += "<option value='"+livros.get(i).getId() +"'>"+livros.get(i).getTitulo()+"</option>";
+            retorno += "<option value='"+livros.get(i).getId() +"'>"+livros.get(i).getTitulo()+" - Volume: "+livros.get(i).getVolume()+"</option>";
         }
         return retorno;
     }
