@@ -67,8 +67,6 @@ public class srvCadastroLote extends HttpServlet {
                     int i = Integer.parseInt(session.getAttribute("i").toString());
 
 
-                    if(i <= volumeLote){
-
                         if(opcao2.equals("incluir")){
                             String titulo = session.getAttribute("tituloLote").toString();
                             String subtitulo = request.getParameter("subtitulo");
@@ -79,7 +77,7 @@ public class srvCadastroLote extends HttpServlet {
                             String ano = request.getParameter("ano");
                             String paginas = request.getParameter("paginas");
                             String edicao = request.getParameter("edicao");
-                            String volume = session.getAttribute("volumeLote").toString();
+                            String volume = session.getAttribute("i").toString();
                             String idStatus = request.getParameter("selStatusLivro");
                             String idStatusLeitura = request.getParameter("selStatusLeitura");
                             String idUsuario = request.getParameter("idUsuario");
@@ -147,16 +145,20 @@ public class srvCadastroLote extends HttpServlet {
                             i++;
 
                             session.setAttribute("i", i);
+                            
+                            if(i<=volumeLote){
+                            
+                                RequestDispatcher rd = request.getRequestDispatcher("srvCadastroNovo?tipo=listar");
+                                rd.forward(request, response);
+                            }else{
+                                session.setAttribute("Lote", "nao");
+                                RequestDispatcher rd = request.getRequestDispatcher("Principal.jsp");
+                                rd.forward(request, response);
 
-                             RequestDispatcher rd = request.getRequestDispatcher("srvCadastroNovo?tipo=listar");
-                             rd.forward(request, response);
-                 
-                }
+                        }
+                    }
                 
-                }else{
-                     session.setAttribute("Lote", "nao");
-                    
-                }
+                
             
             }
             

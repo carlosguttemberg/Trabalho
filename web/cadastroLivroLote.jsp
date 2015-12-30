@@ -89,7 +89,7 @@
                             <div class="form-group">
                                 <label for="titulo" class="col-md-3 control-label">Título</label>
                                 <div class="col-md-9">
-                                    <label class="col-md-3 control-label"><%=titulo%></label> 
+                                    <label><%=titulo%></label> 
                                 </div>
                             </div>
                             

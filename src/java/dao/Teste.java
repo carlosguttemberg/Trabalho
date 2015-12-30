@@ -116,7 +116,7 @@ public class Teste {
                     
 
         // PARA CRIAR AS TABELAS NO BANCO SÓ DESCOMENTAR A LINHA ABAIXO -- PRECISA CRIAR O BANCO PRIMEIRO
-       //new SchemaExport(config).create(true, true);
+       new SchemaExport(config).create(true, true);
        //E PARA ATUALIZAR, A LINHA ABAIXO
        //new SchemaUpdate(config).execute(true, true);
 

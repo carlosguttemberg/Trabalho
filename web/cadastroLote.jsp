@@ -75,6 +75,8 @@
                                 <div class="col-md-9">
                                     <input type="text" class="form-control" name="titulo" placeholder="" required>
                                 </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="volume" class="col-md-3 control-label">Número de Volumes/Livros:</label>
                                 <div class="col-md-9">
                                     <input type="number" class="form-control" name="volume" placeholder="" required>

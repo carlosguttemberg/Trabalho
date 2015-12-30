@@ -36,6 +36,7 @@
         </nav>
         <%
         
+            session.setAttribute("Lote", "nao");
             String listarAutor = request.getParameter("listarAutor");        
             String listarCategoria = request.getParameter("listarCategoria");        
             String listarEditora = request.getParameter("listarEditora");        
