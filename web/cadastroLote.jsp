@@ -68,7 +68,7 @@
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                        <form name="cadastroLote" class="form-horizontal" action="srvCadastroLote" method="POST">
+                        <form name="cadastroLote" class="form-horizontal" action="srvCadastroLote?op1=primeiro" method="POST">
 
                             <div class="form-group">
                                 <label for="titulo" class="col-md-3 control-label">Título da Coleção</label>
